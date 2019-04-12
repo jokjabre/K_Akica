@@ -16,14 +16,14 @@ namespace K_Akica.API.Contracts.Models
         {
         }
 
-        public virtual DbSet<FeedItem> FeedItem { get; set; }
-        public virtual DbSet<Pooper> Pooper { get; set; }
+        public virtual DbSet<FeedItem> FeedItems { get; set; }
+        public virtual DbSet<Pooper> Poopers { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-               optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["K_AkicaDb"].ConnectionString);
+               //optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["K_AkicaDb"].ConnectionString);
             }
         }
 
