@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace K_Akica.API.Contracts.Models
 {
-    public partial class FeedItem
+    public class FeedItem
     {
         public int Id { get; set; }
         public int PooperId { get; set; }

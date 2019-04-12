@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace K_Akica.API.Contracts.Models
 {
-    public partial class K_AkicaContext : DbContext
+    public class K_AkicaContext : DbContext
     {
         public K_AkicaContext()
         {
@@ -56,9 +56,7 @@ namespace K_Akica.API.Contracts.Models
                 entity.Property(e => e.Race).HasMaxLength(100);
             });
 
-            OnModelCreatingPartial(modelBuilder);
+            base.OnModelCreating(modelBuilder);
         }
-
-        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
 }
