@@ -17,8 +17,4 @@
     <ProjectReference Include="..\K_Akica.API.Contracts\K_Akica.API.Contracts.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Helpers\" />
-  </ItemGroup>
-
 </Project>
