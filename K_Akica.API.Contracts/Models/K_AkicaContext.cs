@@ -41,11 +41,10 @@ namespace K_Akica.API.Contracts.Models
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.HasOne(d => d.IdNavigation)
-                    .WithOne(p => p.FeedItem)
-                    .HasForeignKey<FeedItem>(d => d.Id)
-                    .OnDelete(DeleteBehavior.ClientSetNull);
+               
+
             });
+
 
             modelBuilder.Entity<Pooper>(entity =>
             {
@@ -54,6 +53,9 @@ namespace K_Akica.API.Contracts.Models
                     .HasMaxLength(50);
 
                 entity.Property(e => e.Race).HasMaxLength(100);
+
+                entity.HasMany(e => e.FeedItems)
+                    .WithOne(e => e.Pooper);
             });
 
             base.OnModelCreating(modelBuilder);

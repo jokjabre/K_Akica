@@ -40,12 +40,17 @@ namespace K_Akica.API.Contracts.Migrations
                 {
                     table.PrimaryKey("PK_FeedItems", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_FeedItems_Poopers_Id",
-                        column: x => x.Id,
+                        name: "FK_FeedItems_Poopers_PooperId",
+                        column: x => x.PooperId,
                         principalTable: "Poopers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_FeedItems_PooperId",
+                table: "FeedItems",
+                column: "PooperId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

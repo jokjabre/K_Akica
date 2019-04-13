@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace K_Akica.API.Contracts.Migrations
 {
     [DbContext(typeof(K_AkicaContext))]
-    [Migration("20190412171227_initial")]
+    [Migration("20190413111812_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -46,6 +46,8 @@ namespace K_Akica.API.Contracts.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("PooperId");
+
                     b.ToTable("FeedItems");
                 });
 
@@ -71,9 +73,10 @@ namespace K_Akica.API.Contracts.Migrations
 
             modelBuilder.Entity("K_Akica.API.Contracts.Models.FeedItem", b =>
                 {
-                    b.HasOne("K_Akica.API.Contracts.Models.Pooper", "IdNavigation")
-                        .WithOne("FeedItem")
-                        .HasForeignKey("K_Akica.API.Contracts.Models.FeedItem", "Id");
+                    b.HasOne("K_Akica.API.Contracts.Models.Pooper", "Pooper")
+                        .WithMany("FeedItems")
+                        .HasForeignKey("PooperId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

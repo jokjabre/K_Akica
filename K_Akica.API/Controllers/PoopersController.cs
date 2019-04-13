@@ -22,13 +22,13 @@ namespace K_Akica.API.Controllers
 
         // GET: api/Poopers
         [HttpGet]
-        public IEnumerable<PooperRequest> Get()
+        public IEnumerable<Pooper> Get()
         {
-            return m_context.Poopers.Select(p => p.AsResponce());
+            return m_context.Poopers;//.Select(p => p.AsResponce());
         }
 
         // GET: api/Poopers/5
-        [HttpGet("{id}", Name = "Get")]
+        [HttpGet("{id}")]
         public Pooper Get(int id)
         {
             return m_context.Poopers.Find(id);

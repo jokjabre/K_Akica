@@ -12,15 +12,9 @@ namespace K_Akica.API.Contracts.Communication
         public string Race { get; set; }
         public string Description { get; set; }
 
-    }
+        public List<int> Feed { get; set; }
 
-    //public class PooperResponce
-    //{
-    //    public int Id { get; set; }
-    //    public string Name { get; set; }
-    //    public string Race { get; set; }
-    //    public string Description { get; set; }
-    //}
+    }
 
     public static class PooperCommunicationExtensions
     {

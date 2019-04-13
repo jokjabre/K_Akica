@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 
 namespace K_Akica.API.Contracts.Models
 {
@@ -10,6 +13,10 @@ namespace K_Akica.API.Contracts.Models
         public string Race { get; set; }
         public string Description { get; set; }
 
-        public virtual FeedItem FeedItem { get; set; }
+        [JsonIgnore]
+        public virtual ICollection<FeedItem> FeedItems { get; set; } = new List<FeedItem>();
+
+        [NotMapped]
+        public List<int> FeedItemIds { get => FeedItems.Select(i => i.Id).ToList(); }
     }
 }
