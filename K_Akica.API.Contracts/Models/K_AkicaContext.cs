@@ -31,32 +31,8 @@ namespace K_Akica.API.Contracts.Models
         {
             modelBuilder.HasAnnotation("ProductVersion", "2.2.0-rtm-35687");
 
-            modelBuilder.Entity<FeedItem>(entity =>
-            {
-                entity.Property(e => e.Id).ValueGeneratedOnAdd();
-
-                entity.Property(e => e.Duration).HasDefaultValueSql("('10:00:00')");
-
-                entity.Property(e => e.Timestamp)
-                    .HasColumnType("datetime")
-                    .HasDefaultValueSql("(getdate())");
-
-               
-
-            });
-
-
-            modelBuilder.Entity<Pooper>(entity =>
-            {
-                entity.Property(e => e.Name)
-                    .IsRequired()
-                    .HasMaxLength(50);
-
-                entity.Property(e => e.Race).HasMaxLength(100);
-
-                entity.HasMany(e => e.FeedItems)
-                    .WithOne(e => e.Pooper);
-            });
+            modelBuilder.ApplyConfiguration(new FeedItemsConfiguration());
+            modelBuilder.ApplyConfiguration(new PoopersConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }

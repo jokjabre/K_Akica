@@ -46,7 +46,7 @@ namespace K_Akica.API.Contracts.Migrations
 
                     b.HasIndex("PooperId");
 
-                    b.ToTable("FeedItems");
+                    b.ToTable("FeedItems","dbo");
                 });
 
             modelBuilder.Entity("K_Akica.API.Contracts.Models.Pooper", b =>
@@ -66,7 +66,7 @@ namespace K_Akica.API.Contracts.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Poopers");
+                    b.ToTable("Poopers","dbo");
                 });
 
             modelBuilder.Entity("K_Akica.API.Contracts.Models.FeedItem", b =>

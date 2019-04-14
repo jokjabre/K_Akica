@@ -6,6 +6,7 @@ using K_Akica.API.Contracts.Communication;
 using K_Akica.API.Contracts.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace K_Akica.API.Controllers
 {
@@ -22,43 +23,43 @@ namespace K_Akica.API.Controllers
 
         // GET: api/Poopers
         [HttpGet]
-        public IEnumerable<Pooper> Get()
+        public async Task<IEnumerable<Pooper>> Get()
         {
-            return m_context.Poopers;//.Select(p => p.AsResponce());
+            return await m_context.Poopers.ToListAsync();//.Select(p => p.AsResponce());
         }
 
         // GET: api/Poopers/5
         [HttpGet("{id}")]
-        public Pooper Get(int id)
+        public async Task<Pooper> Get(int id)
         {
-            return m_context.Poopers.Find(id);
+            return await m_context.Poopers.FindAsync(id);
         }
 
         // POST: api/Poopers
         [HttpPost]
-        public void Post([FromBody] PooperRequest value)
+        public async Task Post([FromBody] PooperRequest value)
         {
-            m_context.Poopers.Add(value.AsPooper());
-            m_context.SaveChanges();
+            await m_context.Poopers.AddAsync(value.AsPooper());
+            await m_context.SaveChangesAsync();
         }
 
         // PUT: api/Poopers/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] PooperRequest value)
+        public async Task Put(int id, [FromBody] PooperRequest value)
         {
             var existing = m_context.Poopers.Find(id);
             existing.UpdateFromRequest(value);
 
             m_context.Poopers.Update(existing);
-            m_context.SaveChanges();
+            await m_context.SaveChangesAsync();
         }
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
             m_context.Poopers.Remove(m_context.Poopers.Find(id));
-            m_context.SaveChanges();
+            await m_context.SaveChangesAsync();
         }
     }
 }

@@ -23,53 +23,53 @@ namespace K_Akica.API.Controllers
 
         // GET: api/FeedItems
         [HttpGet(Name ="GetAllItems")]
-        public IEnumerable<FeedItem> Get()
+        public async Task<IEnumerable<FeedItem>> Get()
         {
-            return m_context.FeedItems;
+            return await m_context.FeedItems.ToListAsync();
         }
 
         // GET: api/FeedItems/5
         [HttpGet("{id}")]
-        public FeedItem Get(int id)
+        public async Task<FeedItem> Get(int id)
         {
-            return m_context.FeedItems.Find(id);
+            return await m_context.FeedItems.FindAsync(id);
         }
 
         [HttpPost("pooper/{id}", Name = "GetForPooper")]
-        public IEnumerable<FeedItem> GetForPooper(int id)
+        public async Task<IEnumerable<FeedItem>> GetForPooper(int id)
         {
-            return m_context.Poopers.Find(id)?.FeedItems;
+            return (await m_context.Poopers.FindAsync(id))?.FeedItems;
         }
 
         // POST: api/FeedItems
         [HttpPost]
-        public void Post([FromBody] FeedItemRequest value)
+        public async Task Post([FromBody] FeedItemRequest value)
         {
-            var pooper = m_context.Poopers.Find(value.PooperId);
-            m_context.FeedItems.Add(value.AsFeedItem(pooper));
+            var pooper = await m_context.Poopers.FindAsync(value.PooperId);
+            await m_context.FeedItems.AddAsync(value.AsFeedItem(pooper));
 
-            m_context.SaveChanges();
+            await m_context.SaveChangesAsync();
         }
 
         // PUT: api/FeedItems/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] FeedItemRequest value)
+        public async Task Put(int id, [FromBody] FeedItemRequest value)
         {
-            var existing = m_context.FeedItems.Find(id);
-            var pooper = m_context.Poopers.Find(value.PooperId);
+            var existing = await m_context.FeedItems.FindAsync(id);
+            var pooper = await m_context.Poopers.FindAsync(value.PooperId);
 
             existing.UpdateFromRequest(value, pooper);
 
             m_context.FeedItems.Update(existing);
-            m_context.SaveChanges();
+            await m_context.SaveChangesAsync();
         }
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
             m_context.FeedItems.Remove(m_context.FeedItems.Find(id));
-            m_context.SaveChanges();
+            await m_context.SaveChangesAsync();
         }
     }
 }
