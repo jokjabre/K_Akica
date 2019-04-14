@@ -22,7 +22,7 @@ namespace K_Akica.API.Controllers
         }
 
         // GET: api/FeedItems
-        [HttpGet]
+        [HttpGet(Name ="GetAllItems")]
         public IEnumerable<FeedItem> Get()
         {
             return m_context.FeedItems;
@@ -33,6 +33,12 @@ namespace K_Akica.API.Controllers
         public FeedItem Get(int id)
         {
             return m_context.FeedItems.Find(id);
+        }
+
+        [HttpPost("pooper/{id}", Name = "GetForPooper")]
+        public IEnumerable<FeedItem> GetForPooper(int id)
+        {
+            return m_context.Poopers.Find(id)?.FeedItems;
         }
 
         // POST: api/FeedItems
