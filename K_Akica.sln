@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.28809.33
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "K_Akica.API.Contracts", "K_Akica.API.Contracts\K_Akica.API.Contracts.csproj", "{C7280EE2-A798-4526-A2A1-252050AFD0A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "K_Akica.API", "K_Akica.API\K_Akica.API.csproj", "{A1528EB2-D735-429E-ABA7-1792A5CAF003}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "K_Akica.API", "K_Akica.API\K_Akica.API.csproj", "{A1528EB2-D735-429E-ABA7-1792A5CAF003}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "K_Akica.WebApp", "K_Akica.WebApp\K_Akica.WebApp.csproj", "{B954E16A-EDE4-462A-9AA5-F5DFC48103AF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{A1528EB2-D735-429E-ABA7-1792A5CAF003}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1528EB2-D735-429E-ABA7-1792A5CAF003}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1528EB2-D735-429E-ABA7-1792A5CAF003}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B954E16A-EDE4-462A-9AA5-F5DFC48103AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B954E16A-EDE4-462A-9AA5-F5DFC48103AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B954E16A-EDE4-462A-9AA5-F5DFC48103AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B954E16A-EDE4-462A-9AA5-F5DFC48103AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
