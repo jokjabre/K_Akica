@@ -4,9 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using K_Akica.API.Contracts.Communication;
 using K_Akica.API.Contracts.Models;
+using K_Akica.API.Contracts.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+
+[assembly:ApiConventionType(typeof(DefaultApiConventions))]
 
 namespace K_Akica.API.Controllers
 {
@@ -22,21 +25,21 @@ namespace K_Akica.API.Controllers
         }
 
         // GET: api/Poopers
-        [HttpGet]
+        [HttpGet(Name = "GetAllPoopers")]
         public async Task<IEnumerable<Pooper>> Get()
         {
-            return await m_context.Poopers.ToListAsync();//.Select(p => p.AsResponce());
+            return await m_context.Poopers.ToListAsync();
         }
 
         // GET: api/Poopers/5
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name = "GetPooper")]
         public async Task<Pooper> Get(int id)
         {
             return await m_context.Poopers.FindAsync(id);
         }
 
         // POST: api/Poopers
-        [HttpPost]
+        [HttpPost(Name = "PostPooper")]
         public async Task Post([FromBody] PooperRequest value)
         {
             await m_context.Poopers.AddAsync(value.AsPooper());
@@ -44,7 +47,7 @@ namespace K_Akica.API.Controllers
         }
 
         // PUT: api/Poopers/5
-        [HttpPut("{id}")]
+        [HttpPut("{id}", Name = "PutPooper")]
         public async Task Put(int id, [FromBody] PooperRequest value)
         {
             var existing = m_context.Poopers.Find(id);
@@ -55,7 +58,7 @@ namespace K_Akica.API.Controllers
         }
 
         // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
+        [HttpDelete("{id}", Name = "DeletePooper")]
         public async Task Delete(int id)
         {
             m_context.Poopers.Remove(m_context.Poopers.Find(id));

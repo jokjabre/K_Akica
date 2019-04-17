@@ -22,27 +22,27 @@ namespace K_Akica.API.Controllers
         }
 
         // GET: api/FeedItems
-        [HttpGet(Name ="GetAllItems")]
+        [HttpGet(Name ="GetAllFeedItems")]
         public async Task<IEnumerable<FeedItem>> Get()
         {
             return await m_context.FeedItems.ToListAsync();
         }
 
         // GET: api/FeedItems/5
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name = "GetFeedItem")]
         public async Task<FeedItem> Get(int id)
         {
             return await m_context.FeedItems.FindAsync(id);
         }
 
-        [HttpPost("pooper/{id}", Name = "GetForPooper")]
+        [HttpPost("pooper/{id}", Name = "GetFeedForPooper")]
         public async Task<IEnumerable<FeedItem>> GetForPooper(int id)
         {
             return (await m_context.Poopers.FindAsync(id))?.FeedItems;
         }
 
         // POST: api/FeedItems
-        [HttpPost]
+        [HttpPost(Name = "PostFeedItem")]
         public async Task Post([FromBody] FeedItemRequest value)
         {
             var pooper = await m_context.Poopers.FindAsync(value.PooperId);
@@ -52,7 +52,7 @@ namespace K_Akica.API.Controllers
         }
 
         // PUT: api/FeedItems/5
-        [HttpPut("{id}")]
+        [HttpPut("{id}", Name = "PutFeedItem")]
         public async Task Put(int id, [FromBody] FeedItemRequest value)
         {
             var existing = await m_context.FeedItems.FindAsync(id);
@@ -65,7 +65,7 @@ namespace K_Akica.API.Controllers
         }
 
         // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
+        [HttpDelete("{id}", Name = "DeleteFeedItem")]
         public async Task Delete(int id)
         {
             m_context.FeedItems.Remove(m_context.FeedItems.Find(id));

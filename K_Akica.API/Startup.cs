@@ -45,6 +45,9 @@ namespace K_Akica.API
             services.AddDbContext<K_AkicaContext>(options => 
                 options.UseLazyLoadingProxies()
                 .UseSqlServer("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Trsa\\source\\repos\\K_Akica\\K_Akica.API.Contracts\\k_akica.mdf;Integrated Security=true;"));
+
+            services.Configure<IISServerOptions>(options => options.AutomaticAuthentication = false);
+            services.Configure<IISOptions>(options => options.ForwardClientCertificate = false);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

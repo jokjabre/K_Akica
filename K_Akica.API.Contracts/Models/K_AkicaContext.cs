@@ -23,7 +23,7 @@ namespace K_Akica.API.Contracts.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-               //optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["K_AkicaDb"].ConnectionString);
+               optionsBuilder.UseSqlServer("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Trsa\\source\\repos\\K_Akica\\K_Akica.API.Contracts\\k_akica.mdf;Integrated Security=True");
             }
         }
 
