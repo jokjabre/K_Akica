@@ -77,7 +77,17 @@ namespace K_Akica.API.Contracts.Services
         }
 
 
+        public static async Task<IEnumerable<FeedItem>> GetFeedForPooperAsync(int id)
+        {
+            var holder = new ClientHolder()
+            {
+                Uri = $"{ApiUri.AbsoluteUri}/FeedItems/pooper/{id}",
+                OperationType = OperationType.Post,
+                Content = null
+            };
 
+            return await ConsumeApi<IEnumerable<FeedItem>>(holder);
+        }
 
 
         private static async Task<T> ConsumeApi<T>(ClientHolder holder)

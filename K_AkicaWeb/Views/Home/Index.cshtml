@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+
+@*<partial name="PoopersList" model="K_Akica.API.Contracts.Services.K_AkicaClient.GetAllPoopersAsync().Result"/>*@
+
+
+<button onclick="refreshLink()">Feed</button>
+<div class="col-5">
+
+<div id="pDiv"> </div>
+</div>
+<div class="col-7">
+    <div id="nDiv"></div>
+</div>
+
+<script>
+    function refreshLink() {
+       
+        $.get('@Url.Action("FeedItems", "Home", new { id = 1 })', function (data) {
+            $('#pDiv').replaceWith(data);
+            });
+    }
+</script>

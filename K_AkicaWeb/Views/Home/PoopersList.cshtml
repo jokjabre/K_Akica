@@ -1,0 +1,37 @@
+﻿@model IEnumerable<K_Akica.API.Contracts.Models.Pooper>
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, K_AkicaWeb
+
+
+    <div>
+        <h4>Pooper</h4>
+        <hr />
+        @foreach (var pooper in Model)
+        {
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(p => pooper.Name)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(p => pooper.Name)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(p => pooper.Race)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(p => pooper.Race)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(p => pooper.Description)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(p => pooper.Description)
+                </dd>
+            </dl>
+            <a asp-action="Edit" asp-route-id="@pooper.Id">Edit</a>
+        }
+    </div>
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
