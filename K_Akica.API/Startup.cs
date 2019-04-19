@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using K_Akica.API.Contracts.Models;
 using Microsoft.AspNetCore.Builder;
@@ -41,10 +43,10 @@ namespace K_Akica.API
             {
                 c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
             });
-            
+            var loc = Path.GetDirectoryName(Assembly.GetAssembly(typeof(K_AkicaContext)).Location);
             services.AddDbContext<K_AkicaContext>(options => 
                 options.UseLazyLoadingProxies()
-                .UseSqlServer("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Trsa\\source\\repos\\K_Akica\\K_Akica.API.Contracts\\k_akica.mdf;Integrated Security=true;"));
+                .UseSqlServer($"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename={loc}\\k_akica.mdf;Integrated Security=true;"));
 
             services.Configure<IISServerOptions>(options => options.AutomaticAuthentication = false);
             services.Configure<IISOptions>(options => options.ForwardClientCertificate = false);

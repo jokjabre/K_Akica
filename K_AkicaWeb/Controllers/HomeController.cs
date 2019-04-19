@@ -27,11 +27,11 @@ namespace K_AkicaWeb.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public IActionResult PoopersList()
+        public PartialViewResult PoopersList()
         {
             var poopers = K_AkicaClient.GetAllPoopersAsync().Result;
 
-            return View(poopers);
+            return PartialView(poopers);
         }
 
         public async Task<PartialViewResult> FeedItems(int id)

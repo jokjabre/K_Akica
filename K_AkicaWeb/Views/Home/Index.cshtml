@@ -11,20 +11,24 @@
 @*<partial name="PoopersList" model="K_Akica.API.Contracts.Services.K_AkicaClient.GetAllPoopersAsync().Result"/>*@
 
 
-<button onclick="refreshLink()">Feed</button>
-<div class="col-5">
+<button onclick="refreshLink('/Home/PoopersList', null, '#pDiv')">Feed</button>
 
-<div id="pDiv"> </div>
+<div class="col-5">
+    <div id="pDiv"> </div>
 </div>
+
 <div class="col-7">
     <div id="nDiv"></div>
 </div>
 
+@section Scripts
+{
+
 <script>
-    function refreshLink() {
-       
-        $.get('@Url.Action("FeedItems", "Home", new { id = 1 })', function (data) {
-            $('#pDiv').replaceWith(data);
-            });
-    }
+    //loads the list of available poopers from API
+    refreshLink('/Home/PoopersList', null, '#pDiv');
+
+    //addListener('#PooperTable tr', function (value) { alert(value); });
 </script>
+
+}
