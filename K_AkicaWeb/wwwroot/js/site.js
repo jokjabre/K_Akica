@@ -17,6 +17,6 @@ function addListener(selector, func) {
 
 function refreshLink(route, obj, selector) {
     $.get(route, obj, function (data) {
-        $(selector).replaceWith(data);
+        $(selector).html(data);
     });
 }

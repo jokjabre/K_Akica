@@ -39,10 +39,5 @@ namespace K_AkicaWeb.Controllers
             var feed = await K_AkicaClient.GetFeedForPooperAsync(id);
             return PartialView(feed);
         }
-
-        public void Edit(int id)
-        {
-
-        }
     }
 }
