@@ -3,20 +3,32 @@
 
 // Write your JavaScript code.
 
-function addListener(selector, func) {
-    $(document).on('click', selector, function (e) {
-        $(this).addClass('selected').siblings().removeClass('selected');
-        var value = $(this).find('td:first').html();
-        func(value);
+function getPooperId() {
+    return $(selectorMap.pooperHolderClickedSelector).data(dataMap.pooperId);
+}
 
+function setClass(elem, className, removeFromSiblings) {
+    if (removeFromSiblings) {
+        $(elem).siblings().removeClass(className);
+    }
+    $(elem).addClass(className);
+}
+
+function populateFromControllerAction(route, obj, selector, funcPre, funcPost) {
+    if (funcPre !== undefined) { funcPre(); }
+
+    $.get(route, obj, function (data) {
+        $(selector).html(data);
+        if (funcPost !== undefined) { funcPost(); }
     });
 }
 
 
 
-
-function refreshLink(route, obj, selector) {
-    $.get(route, obj, function (data) {
-        $(selector).html(data);
-    });
+function onPooperHolderClick(pId, elem) {
+    populateFromControllerAction(
+        linkMap.feed,
+        { id: pId },
+        selectorMap.pooperFeedId,
+        setClass(elem, classMap.clicked, true));
 }

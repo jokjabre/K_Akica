@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using K_AkicaWeb.Models;
 using K_Akica.API.Contracts.Services;
+using K_Akica.API.Contracts.Models;
+using K_Akica.API.Contracts.Communication;
 
 namespace K_AkicaWeb.Controllers
 {
@@ -38,6 +40,11 @@ namespace K_AkicaWeb.Controllers
         {
             var feed = await K_AkicaClient.GetFeedForPooperAsync(id);
             return PartialView(feed);
+        }
+
+        public async Task AddFeed(FeedItemRequest item)
+        {
+            await K_AkicaClient.AddFeedItemAsync(item);
         }
     }
 }

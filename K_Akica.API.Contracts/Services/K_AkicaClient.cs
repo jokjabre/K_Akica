@@ -1,4 +1,6 @@
-﻿using K_Akica.API.Contracts.Models;
+﻿using K_Akica.API.Contracts.Communication;
+using K_Akica.API.Contracts.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,18 +49,14 @@ namespace K_Akica.API.Contracts.Services
             return await ConsumeApi<List<Pooper>>(holder);
         }
 
-        public static async Task<List<Pooper>> CreatePooper(string name, string race, string desc)
+        public static async Task<List<Pooper>> CreatePooper(PooperRequest request)
         {
             var holder = new ClientHolder()
             {
                 Uri = $"{ApiUri.AbsoluteUri}/Poopers",
                 OperationType = OperationType.Post,
 
-                Content = new FormUrlEncodedContent(new Dictionary<string, string> {
-                        { "Name", name },
-                        { "Race", race },
-                        { "Description", desc }
-                    })
+                Content = MakeContent(request)
             };
 
             return await ConsumeApi<List<Pooper>>(holder);
@@ -89,18 +87,40 @@ namespace K_Akica.API.Contracts.Services
             return await ConsumeApi<IEnumerable<FeedItem>>(holder);
         }
 
+        public static async Task<bool> AddFeedItemAsync(FeedItemRequest item)
+        {
+            var holder = new ClientHolder()
+            {
+                Uri = $"{ApiUri.AbsoluteUri}/FeedItems",
+                OperationType = OperationType.Post,
+                Content = MakeContent(item)
+            };
+
+            return await ConsumeApi(holder);
+        }
+
 
         private static async Task<T> ConsumeApi<T>(ClientHolder holder)
         {
             using (var client = getClient())
             using (var responce = await MakeResponce(client, holder))
             {
-                return Newtonsoft.Json.JsonConvert.DeserializeObject<T>(await responce.Content.ReadAsStringAsync());
+                return JsonConvert.DeserializeObject<T>(await responce.Content.ReadAsStringAsync());
+            }
+        }
+
+        private static async Task<bool> ConsumeApi(ClientHolder holder)
+        {
+            using (var client = getClient())
+            using (var responce = await MakeResponce(client, holder))
+            {
+                return responce.IsSuccessStatusCode;
             }
         }
 
         private static async Task<HttpResponseMessage> MakeResponce(K_AkicaClient client, ClientHolder holder)
         {
+            
             switch (holder.OperationType)
             {
                 case OperationType.Get:
@@ -117,6 +137,14 @@ namespace K_Akica.API.Contracts.Services
             }
 
             return null;
+        }
+
+        private static HttpContent MakeContent(object obj)
+        {
+            var result = new StringContent(JsonConvert.SerializeObject(obj));
+            result.Headers.ContentType.MediaType = "application/json-patch+json";
+
+            return result;
         }
 
         class ClientHolder

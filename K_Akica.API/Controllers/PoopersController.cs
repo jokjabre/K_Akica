@@ -40,7 +40,7 @@ namespace K_Akica.API.Controllers
 
         // POST: api/Poopers
         [HttpPost(Name = "PostPooper")]
-        public async Task Post([FromBody] PooperRequest value)
+        public async Task Post(PooperRequest value)
         {
             await m_context.Poopers.AddAsync(value.AsPooper());
             await m_context.SaveChangesAsync();

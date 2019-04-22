@@ -1,20 +1,4 @@
-﻿@import url('https://fonts.googleapis.com/css?family=Raleway:400,600');
-
-body {
-    font-family: 'Raleway', sans-serif;
-    background: #fafafa;
-}
-
-h1 {
-    text-align: center;
-    padding: 30px 0 0 0;
-}
-
-h4 {
-    font-size: 1.2em;
-    text-align: center;
-    padding: 0 0 30px 0;
-}
+﻿
 
 .timeline {
     list-style: none;
@@ -23,7 +7,7 @@ h4 {
 }
 
     .timeline:before {
-        top: 0;
+        top: 40px;
         bottom: 0;
         position: absolute;
         content: "";
@@ -119,7 +103,7 @@ h4 {
     left: 20px;
     margin-left: -25px;
     background-color: #fafafa;
-    z-index: 999;
+    z-index: 1;
     border-radius: 50%;
     font-family: Font Awesome\ 5 Free;
 }
@@ -158,3 +142,5 @@ h4 {
     .timeline > li > .icon.poop.wizz:before {
         content: "\f2fe \f043";
     }
+
+

@@ -43,7 +43,7 @@ namespace K_Akica.API.Controllers
 
         // POST: api/FeedItems
         [HttpPost(Name = "PostFeedItem")]
-        public async Task Post([FromBody] FeedItemRequest value)
+        public async Task Post(FeedItemRequest value)
         {
             var pooper = await m_context.Poopers.FindAsync(value.PooperId);
             await m_context.FeedItems.AddAsync(value.AsFeedItem(pooper));
