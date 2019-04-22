@@ -5,24 +5,45 @@
 
 
 
-    <h1>Activity feed</h1>
-    @if (Model.Any())
-    {
-    <div class="fullHeight" id="feedTimeline">
-        <ul class="timeline fullHeight" id="timelineMain">
+
+@*@if (Model.Any())
+        {
+        <div class="fullHeight" id="feedTimeline">
+            <ul class="timeline fullHeight" id="timelineMain">
+                @foreach (var item in Model)
+                {
+                    var cls = item.Poop && item.Wizz ? " poop wizz" : item.Poop ? " poop" : item.Wizz ? " wizz" : "";
+
+                    <li class="timeline">
+                        <div class="icon @cls"></div>
+                        <details class="panel">
+                            <summary>@item.Timestamp.ToString("yyyy/MM/dd HH:mm:ss")</summary>
+                            <p>@item.Description</p>
+                        </details>
+                    </li>
+                }
+            </ul>
+        </div>
+        }
+    <partial name="AddFeed" model="new K_Akica.API.Contracts.Communication.FeedItemRequest()"/>*@
+
+
+
+
+    <div class="container">
+        <h1 class="project-name">Activity feed</h1>
+
+        <div id="timeline">
             @foreach (var item in Model)
             {
-                var cls = item.Poop && item.Wizz ? " poop wizz" : item.Poop ? " poop" : item.Wizz ? " wizz" : "";
-
-                <li class="timeline">
-                    <div class="icon @cls"></div>
-                    <details class="panel">
-                        <summary>@item.Timestamp.ToString("yyyy/MM/dd HH:mm:ss")</summary>
-                        <p>@item.Description</p>
-                    </details>
-                </li>
+                <div class="timeline-item">
+                    <div class="timeline-icon"></div>
+                    <div class="timeline-content">
+                        <h2>@item.Timestamp.ToString("yyyy/MM/dd HH:mm:ss")</h2>
+                        <p> @item.Description </p>
+                    </div>
+                </div>
             }
-        </ul>
+        </div>
+        <partial name="AddFeed" model="new K_Akica.API.Contracts.Communication.FeedItemRequest()" />
     </div>
-    }
-<partial name="AddFeed" model="new K_Akica.API.Contracts.Communication.FeedItemRequest()"/>
