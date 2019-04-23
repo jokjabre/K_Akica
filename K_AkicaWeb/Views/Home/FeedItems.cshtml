@@ -31,17 +31,41 @@
         <h1 class="project-name">Activity feed</h1>
     
         <div id="feedTimeline" >
-            <div id="feedHolder">
+            <div id="feedHolder" class="container">
                 @foreach (var item in Model)
                 {
                     <div class="timeline-item">
                         <div class="timeline-icon"></div>
                         <div class="timeline-content">
                             <h2>@item.Timestamp.ToString("yyyy/MM/dd HH:mm:ss")</h2>
-                            <p> @item.Description </p>
+                            <p>
+                                @item.Description?.Replace(Environment.NewLine, "<br/>")
+                            </p>
                         </div>
                     </div>
                 }
+
+                <div class="timeline-item">
+                    <div class="timeline-icon"></div>
+                    <div class="timeline-content">
+                        <h2>Add new</h2>
+                        <div  class="flex-column">
+                            <div>
+                                <div>
+                                    <label>Duration:</label>
+                                    <input type="time" value="10:00:00" />
+                                </div>
+
+                                <div class="toggle btn btn-success" data-toggle="toggle" style="width: 112.922px; height: 38px;"><input type="checkbox" checked="" data-toggle="toggle" data-on="Ready" data-off="Not Ready" data-onstyle="success" data-offstyle="danger"><div class="toggle-group"><label class="btn btn-success toggle-on">Ready</label><label class="btn btn-danger toggle-off">Not Ready</label><span class="toggle-handle btn btn-light"></span></div></div>
+
+                            </div>
+                            <textarea id="newDesc" />
+                            <button type="submit">Save</button>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
         </div>
         <partial name="AddFeed" model="new K_Akica.API.Contracts.Communication.FeedItemRequest()" />

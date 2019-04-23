@@ -48,95 +48,97 @@ img {
 }
 
 
+#feedTimeline {
+    padding-bottom: 30px;
+    padding-top: 10px;
 
-
-// Timeline
-#feedHolder {
-    width: 100%;
-    position: relative;
-    padding: 0 10px;
-    @include prefix(transition, all .4s ease);
-
-    &:before {
-        content: "";
-        width: 3px;
-        height: 100%;
-        background: $timeline-color;
-        left: 50%;
-        top: 0;
-        position: absolute;
-    }
-
-    &:after {
-        content: "";
-        clear: both;
-        display: table;
+    // Timeline
+    #feedHolder {
         width: 100%;
-    }
-
-    .timeline-item {
-        /*margin-bottom: 50px;*/
         position: relative;
-        @extend %clearfix;
+        padding: 0px 20px;
+        @include prefix(transition, all .4s ease);
 
-        .timeline-icon {
+        &:before {
+            content: "";
+            width: 3px;
+            height: 100%;
             background: $timeline-color;
-            width: 50px;
-            height: 50px;
-            position: absolute;
-            top: 0;
             left: 50%;
-            overflow: hidden;
-            margin-left: -23px;
-            @include prefix(border-radius, 50%);
+            top: 0;
+            position: absolute;
         }
 
+        &:after {
+            content: "";
+            clear: both;
+            display: table;
+            width: 100%;
+        }
 
+        .timeline-item {
+            /*margin-bottom: 50px;*/
+            position: relative;
+            @extend %clearfix;
 
-        .timeline-content {
-            width: 45%;
-            background: #fff;
-            padding: 20px;
-            @include prefix(box-shadow, 0 3px 0 rgba(0,0,0,0.1));
-            @include prefix(border-radius, 5px);
-            @include prefix(transition, all .3s ease);
-
-            h2 {
-                padding: 15px;
+            .timeline-icon {
                 background: $timeline-color;
-                color: #fff;
-                margin: -20px -20px 0 -20px;
-                font-weight: 300;
-                @include prefix(border-radius, 3px 3px 0 0);
-            }
-
-            &:before {
-                content: '';
+                width: 50px;
+                height: 50px;
                 position: absolute;
-                left: 45%;
-                top: 20px;
-                width: 0;
-                height: 0;
-                border-top: 7px solid transparent;
-                border-bottom: 7px solid transparent;
-                border-left: 7px solid $timeline-color;
+                top: 10px;
+                left: 50%;
+                overflow: hidden;
+                margin-left: -23px;
+                @include prefix(border-radius, 50%);
             }
-        }
 
-        &:nth-of-type(2n) .timeline-content {
-            float: right;
 
-            &:before {
-                content: '';
-                right: 45%;
-                left: inherit;
-                border-left: 0;
-                border-right: 7px solid $timeline-color;
+
+            .timeline-content {
+                width: 45%;
+                background: #fff;
+                padding: 10px;
+                @include prefix(box-shadow, 10px 11px 20px 0px rgba(0, 0, 0, 0.48));
+                @include prefix(border-radius, 30px);
+                @include prefix(transition, all .3s ease);
+
+                h2 {
+                    padding: 15px;
+                    background: $timeline-color;
+                    color: #fff;
+                    margin: -10px -10px 0px -10px;
+                    font-weight: 300;
+                    @include prefix(border-radius, 30px 30px 0px 0px);
+                }
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    left: 45%;
+                    top: 30px;
+                    width: 0;
+                    height: 0;
+                    border-top: 7px solid transparent;
+                    border-bottom: 7px solid transparent;
+                    border-left: 7px solid $timeline-color;
+                }
+            }
+
+            &:nth-of-type(2n) .timeline-content {
+                float: right;
+
+                &:before {
+                    content: '';
+                    right: 45%;
+                    left: inherit;
+                    border-left: 0;
+                    border-right: 7px solid $timeline-color;
+                }
             }
         }
     }
 }
-
 @media screen and (max-width: 768px) {
     #feedHolder {
         margin: 30px;
