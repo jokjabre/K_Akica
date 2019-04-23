@@ -23,12 +23,15 @@ function populateFromControllerAction(route, obj, selector, funcPre, funcPost) {
     });
 }
 
-
+function scrollToNewFeedItem() {
+    document.getElementById(idMap.newFeedItem).scrollIntoView(true);
+}
 
 function onPooperHolderClick(pId, elem) {
     populateFromControllerAction(
         linkMap.feed,
         { id: pId },
         selectorMap.pooperFeedId,
-        setClass(elem, classMap.clicked, true));
+        setClass(elem, classMap.clicked, true),
+        scrollToNewFeedItem);
 }

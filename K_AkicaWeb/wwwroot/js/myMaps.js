@@ -1,6 +1,7 @@
 ﻿var idMap = {
     pooperFeed: "pooperFeed",
-    feedTimeline: "feedTimeline"
+    feedTimeline: "feedTimeline",
+    newFeedItem: "newFeedItem"
 };
 
 var linkMap = {
@@ -22,5 +23,6 @@ var selectorMap = {
     pooperHolderClass: ".pooperHolder",
     clickedClass: ".clicked",
     pooperHolderClickedSelector: ".pooperHolder.clicked",
-    feedTimelineId: "#feedTimeline"
+    feedTimelineId: "#feedTimeline",
+    newFeedItemId: "#newFeedItem"
 };

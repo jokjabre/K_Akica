@@ -45,21 +45,26 @@
                     </div>
                 }
 
-                <div class="timeline-item">
+                <div class="timeline-item" id="newFeedItem">
                     <div class="timeline-icon"></div>
                     <div class="timeline-content">
                         <h2>Add new</h2>
-                        <div  class="flex-column">
-                            <div>
+                        <div class="flex-column d-flex">
+                            
                                 <div>
                                     <label>Duration:</label>
                                     <input type="time" value="10:00:00" />
                                 </div>
 
-                                <div class="toggle btn btn-success" data-toggle="toggle" style="width: 112.922px; height: 38px;"><input type="checkbox" checked="" data-toggle="toggle" data-on="Ready" data-off="Not Ready" data-onstyle="success" data-offstyle="danger"><div class="toggle-group"><label class="btn btn-success toggle-on">Ready</label><label class="btn btn-danger toggle-off">Not Ready</label><span class="toggle-handle btn btn-light"></span></div></div>
+                                @*toggle*@
+                                <div class="wrapper">
+                                    <input id="dn" type="checkbox" />
+                                    <label class="my-toggle" for="dn">
+                                        <span class="toggle--handler"></span>
+                                    </label>
+                                </div>
 
-                            </div>
-                            <textarea id="newDesc" />
+                            <textarea id="newDesc"/>
                             <button type="submit">Save</button>
                         </div>
                     </div>
@@ -68,4 +73,3 @@
 
             </div>
         </div>
-        <partial name="AddFeed" model="new K_Akica.API.Contracts.Communication.FeedItemRequest()" />
