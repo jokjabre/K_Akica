@@ -49,16 +49,10 @@ img {
 
 
 
-.project-name {
-    text-align: center;
-    padding: 10px 0;
-}
-
 
 // Timeline
-#timeline {
+#feedHolder {
     width: 100%;
-    margin: 30px auto;
     position: relative;
     padding: 0 10px;
     @include prefix(transition, all .4s ease);
@@ -95,12 +89,6 @@ img {
             overflow: hidden;
             margin-left: -23px;
             @include prefix(border-radius, 50%);
-
-            svg {
-                position: relative;
-                top: 14px;
-                left: 14px;
-            }
         }
 
 
@@ -149,31 +137,8 @@ img {
     }
 }
 
-// Buttons
-.btn {
-    padding: 5px 15px;
-    text-decoration: none;
-    background: transparent;
-    border: 2px solid lighten($primary-color, 10%);
-    color: lighten($primary-color, 10%);
-    display: inline-block;
-    position: relative;
-    text-transform: uppercase;
-    font-size: 12px;
-    @include prefix(border-radius, 5px);
-    @include prefix(transition, background .3s ease);
-    @include prefix(box-shadow, 2px 2px 0 lighten($primary-color, 10%));
-
-    &:hover {
-        box-shadow: none;
-        top: 2px;
-        left: 2px;
-        @include prefix(box-shadow, 2px 2px 0 transparent);
-    }
-}
-
 @media screen and (max-width: 768px) {
-    #timeline {
+    #feedHolder {
         margin: 30px;
         padding: 0px;
         width: 90%;

@@ -1,5 +1,4 @@
 ﻿.sidenav {
-    position: fixed;
     z-index: 2;
 
     overflow: hidden;
@@ -33,5 +32,23 @@
     overflow-y: auto;
 }
 
+@media (max-width: 991px) {
+    .sidenav {
+        flex-direction: row !important;
+        width: 100%;
+        height: auto;
+    }
 
+        .sidenav .nav {
+            height: 195px;
+        }
+
+    #pooperFeed {
+        margin-left: 20px;
+    }
+
+    main {
+        flex-direction: column !important;
+    }
+}
 

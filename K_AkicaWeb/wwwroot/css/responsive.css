@@ -22,8 +22,7 @@ h1 {
 }
 
 #pooperFeed {
-    margin-left: 180px; /*size of sidenav + 20px offset*/
-    margin-right: 20px;
+
     display: flex;
     flex-flow: column;
 }
