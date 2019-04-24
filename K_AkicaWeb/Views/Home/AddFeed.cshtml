@@ -1,44 +1,53 @@
 ﻿@model K_Akica.API.Contracts.Communication.FeedItemRequest
 
 
-<div id="addNewFeedDiv">
+    <div id="addNewFeedDiv">
 
-    <form id="feedForm" asp-action="AddFeed" autocomplete="off" >
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <input hidden asp-for="PooperId" />
+        <div class="timeline-item" id="newFeedItem">
+            <div class="timeline-content mx-auto">
+                <h2>Add new</h2>
 
+                <div class="container">
+                    <div class="row mt-3">
 
-        <div class="form-row flex-xl-row">
-            <div class="form-group">
-                <div class="form-check">
-                    <label class="form-check-label switch">
-                        <input type="checkbox" class="form-check-input" asp-for="Poop" /> @Html.DisplayNameFor(model => model.Poop)
-                        <span class="slider round"></span>
-                    </label>
+                        <div class="col-3 form-inline">
+                            <label for="#time" class="pr-2">Duration:</label>
+                            @*<input type="time" name="time" id="time" value="10:00:00" />*@
+                            @Html.EditorFor(model => model.Duration, new { @class = "form-control form-inline"} )
+                        </div>
+
+                        <div class="col-2">
+                            <label class="switch">
+                                @Html.CheckBoxFor(model => model.Poop, new { @class = "form-control"} )
+                                <span class="slider round" data-on="POOP"></span>
+                                <span class="absolute-no">POOP</span>
+                            </label>
+                        </div>
+
+                        <div class="col-2">
+                            <label class="switch">
+                                @Html.CheckBoxFor(model => model.Poop, new { @class = "form-control"} )
+                                <span class="slider round" data-on="WIZZ"></span>
+                                <span class="absolute-no">WIZZ</span>
+                            </label>
+                        </div>
+
+                    </div>
+
+                    <div class="row ">
+                        @Html.TextAreaFor(model => model.Description, new { @class = "form-control col", rows = "4"})
+                        @*<textarea id="newDesc" class="col" rows="4"/>*@
+                    </div>
+
+                    <div class="row">
+                        <button type="submit" class="px-3 my-2 mx-auto ">Save</button>
+                    </div>
+
                 </div>
             </div>
-
-            <div class="form-group">
-                <div class="form-check">
-                    <label class="form-check-label switch">
-                        <input type="checkbox" class="form-check-input" asp-for="Wizz" /> @Html.DisplayNameFor(model => model.Wizz)
-                        <span class="slider round"></span>
-                    </label>
-                </div>
-            </div>
-
-            <div class="flex-fill">
-                <input asp-for="Description" class="form-control" placeholder="Description" />
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <input type="submit" value="Create" class="btn btn-primary" style="right:15px; position:fixed" onclick="onFormSubmitClicked($('#feedForm')[0])" />
-
-
         </div>
 
-
-    </form>
-</div>
+    </div>
 
 <script>
     function onFormSubmitClicked(form) {

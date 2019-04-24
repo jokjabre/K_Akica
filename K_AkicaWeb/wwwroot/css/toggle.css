@@ -1,0 +1,79 @@
+﻿.switch {
+  position: relative;
+  display: inline-block;
+  width: 4rem;
+  height: calc(4rem * 0.5); }
+  .switch input {
+    display: none; }
+  .switch .slider {
+    position: absolute;
+    cursor: pointer;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #f2f2f2;
+    -webkit-transition: .4s;
+    transition: .4s; }
+  .switch .slider:before {
+    position: absolute;
+    z-index: 2;
+    content: "";
+    height: calc(4rem * 0.5);
+    width: calc(4rem * 0.5);
+    background-color: darkslategrey;
+    -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.22);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.22);
+    -webkit-transition: .4s;
+    transition: all 0.4s ease-in-out; }
+  .switch .slider:after {
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    content: attr(data-on);
+    font-size: calc(4rem * 0.13);
+    text-align: left !important;
+    line-height: calc(4rem * 0.5);
+    padding-left: 0;
+    width: 4rem;
+    color: #fff;
+    height: calc(4rem * 0.5);
+    border-radius: calc(4rem * 0.5);
+    background-color: #ff6418;
+    -webkit-transform: translateX(-4rem);
+    -ms-transform: translateX(-4rem);
+    transform: translateX(-4rem);
+    transition: all 0.4s ease-in-out; }
+
+input:checked ~ .slider:after {
+  -webkit-transform: translateX(0px);
+  -ms-transform: translateX(0px);
+  transform: translateX(0px);
+  padding-left: 10%; }
+
+input:checked ~ .slider:before {
+  background-color: #fff; }
+
+input:checked ~ .slider:before {
+  -webkit-transform: translateX(calc(4rem * 0.5));
+  -ms-transform: translateX(calc(4rem * 0.5));
+  transform: translateX(calc(4rem * 0.5)); }
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: calc(4rem * 0.5); }
+
+.slider.round:before {
+  border-radius: 50%; }
+
+.absolute-no {
+  position: absolute;
+  left: 0;
+  color: darkslategrey;
+  text-align: right !important;
+  font-size: calc(4rem * 0.13);
+  width: calc(100% - 10%);
+  height: calc(4rem * 0.5);
+  line-height: calc(4rem * 0.5);
+  cursor: pointer; }

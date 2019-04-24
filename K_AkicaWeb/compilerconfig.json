@@ -6,5 +6,10 @@
   {
     "outputFile": "wwwroot/css/switch.css",
     "inputFile": "wwwroot/css/switch.scss"
+  },
+ 
+  {
+    "outputFile": "wwwroot/css/toggle.css",
+    "inputFile": "wwwroot/css/toggle.scss"
   }
 ]

@@ -1,0 +1,101 @@
+﻿$base: 4rem;
+$pad: 10%;
+$sliderSize: calc(#{$base} * 0.5);
+$fntSize: calc(#{$base} * 0.13);
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: $base;
+    height: $sliderSize;
+
+
+    & input {
+        display: none;
+    }
+
+
+    & .slider {
+        position: absolute;
+        cursor: pointer;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #f2f2f2;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    .slider:before {
+        position: absolute;
+        z-index: 2;
+        content: "";
+        height: $sliderSize;
+        width: $sliderSize;
+        background-color: darkslategrey;
+        -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.22);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.22);
+        -webkit-transition: .4s;
+        transition: all 0.4s ease-in-out;
+    }
+
+    .slider:after {
+        position: absolute;
+        left: 0;
+        z-index: 1;
+        content: attr(data-on);
+        font-size: $fntSize;
+        text-align: left !important;
+        line-height: $sliderSize;
+        padding-left: 0;
+        width: $base;
+        color: #fff;
+        height: $sliderSize;
+        border-radius: $sliderSize;
+        background-color: #ff6418;
+        -webkit-transform: translateX(-$base);
+        -ms-transform: translateX(-$base);
+        transform: translateX(-$base);
+        transition: all 0.4s ease-in-out;
+    }
+}
+
+input:checked ~ .slider:after {
+    -webkit-transform: translateX(0px);
+    -ms-transform: translateX(0px);
+    transform: translateX(0px);
+    padding-left: $pad;
+}
+
+input:checked ~ .slider:before {
+    background-color: #fff;
+}
+
+input:checked ~ .slider:before {
+    -webkit-transform: translateX($sliderSize);
+    -ms-transform: translateX($sliderSize);
+    transform: translateX($sliderSize);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: $sliderSize;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.absolute-no {
+    position: absolute;
+    left: 0;
+    color: darkslategrey;
+    text-align: right !important;
+    font-size: $fntSize;
+    width: calc(100% - #{$pad});
+    height: $sliderSize;
+    line-height: $sliderSize;
+    cursor: pointer;
+}
