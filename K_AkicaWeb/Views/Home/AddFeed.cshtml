@@ -7,18 +7,21 @@
             <div class="timeline-content mx-auto">
                 <h2>Add new</h2>
 
+               <form id="addForm">
+
                 <div class="container">
                     <div class="row mt-3">
 
                         <div class="col-3 form-inline">
-                            <label for="#time" class="pr-2">Duration:</label>
+                            @*<label for="#time" class="pr-2">Duration:</label>*@
                             @*<input type="time" name="time" id="time" value="10:00:00" />*@
-                            @Html.EditorFor(model => model.Duration, new { @class = "form-control form-inline"} )
+                            @Html.LabelFor(model => model.Duration)
+                            @Html.EditorFor(model => model.Duration, new { @class = "form-control form-inline", type="date" })
                         </div>
 
                         <div class="col-2">
                             <label class="switch">
-                                @Html.CheckBoxFor(model => model.Poop, new { @class = "form-control"} )
+                                <input type="checkbox" name="Poop" data-val="true" value="true" data-toggle="Poop"/>
                                 <span class="slider round" data-on="POOP"></span>
                                 <span class="absolute-no">POOP</span>
                             </label>
@@ -26,7 +29,7 @@
 
                         <div class="col-2">
                             <label class="switch">
-                                @Html.CheckBoxFor(model => model.Poop, new { @class = "form-control"} )
+                                <input type="checkbox" name="Wizz" data-val="true" value="true" data-toggle="Wizz" />
                                 <span class="slider round" data-on="WIZZ"></span>
                                 <span class="absolute-no">WIZZ</span>
                             </label>
@@ -35,15 +38,18 @@
                     </div>
 
                     <div class="row ">
-                        @Html.TextAreaFor(model => model.Description, new { @class = "form-control col", rows = "4"})
+                        @Html.TextAreaFor(model => model.Description, new { @class = "form-control col", rows = "4" })
                         @*<textarea id="newDesc" class="col" rows="4"/>*@
                     </div>
 
                     <div class="row">
-                        <button type="submit" class="px-3 my-2 mx-auto ">Save</button>
+                        <button type="submit" class="btn btn-primary px-3 my-2 mx-auto " onclick="refreshFeed($('#addForm'), './Home/AddFeed')">Save</button>
                     </div>
 
                 </div>
+               
+               </form>
+
             </div>
         </div>
 

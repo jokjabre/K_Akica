@@ -46,5 +46,10 @@ namespace K_AkicaWeb.Controllers
         {
             await K_AkicaClient.AddFeedItemAsync(item);
         }
+
+        public void Test()
+        {
+
+        }
     }
 }

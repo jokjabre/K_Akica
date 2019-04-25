@@ -15,11 +15,11 @@ function setClass(elem, className, removeFromSiblings) {
 }
 
 function populateFromControllerAction(route, obj, selector, funcPre, funcPost) {
-    if (funcPre !== undefined) { funcPre(); }
+    if (funcPre) { funcPre(); }
 
     $.get(route, obj, function (data) {
         $(selector).html(data);
-        if (funcPost !== undefined) { funcPost(); }
+        if (funcPost) { funcPost(); }
     });
 }
 
@@ -35,3 +35,28 @@ function onPooperHolderClick(pId, elem) {
         setClass(elem, classMap.clicked, true),
         scrollToNewFeedItem);
 }
+
+var refreshFeed = function (form, url) {
+    event.preventDefault();
+    var elem = $(selectorMap.pooperHolderClickedSelector);
+    var pId = elem.data(dataMap.pooperId);
+    var dt = form.serializeArray().concat({ name: "PooperId", value: pId });
+    
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: dt, // serializes the form's elements.
+        success: function (data) {
+           
+            
+
+            populateFromControllerAction(
+                linkMap.feed,
+                { id: pId },
+                selectorMap.pooperFeedId,
+                null,
+                scrollToNewFeedItem);
+        }
+    });
+
+};

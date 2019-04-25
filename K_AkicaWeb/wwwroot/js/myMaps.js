@@ -15,7 +15,7 @@ var classMap = {
 };
 
 var dataMap = {
-    pooperId: "pooperId"
+    pooperId: "pooperid"
 };
 
 var selectorMap = {
