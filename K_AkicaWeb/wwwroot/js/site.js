@@ -36,7 +36,7 @@ function onPooperHolderClick(pId, elem) {
         scrollToNewFeedItem);
 }
 
-var refreshFeed = function (form, url) {
+function refreshFeed(form, url) {
     event.preventDefault();
     var elem = $(selectorMap.pooperHolderClickedSelector);
     var pId = elem.data(dataMap.pooperId);
@@ -59,4 +59,4 @@ var refreshFeed = function (form, url) {
         }
     });
 
-};
+}

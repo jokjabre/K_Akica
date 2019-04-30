@@ -39,12 +39,14 @@ namespace K_AkicaWeb.Controllers
         public async Task<PartialViewResult> FeedItems(int id)
         {
             var feed = await K_AkicaClient.GetFeedForPooperAsync(id);
-            return PartialView(feed);
+            var model = feed.Select(e => new FeedItemViewModel(e));
+
+            return PartialView(model);
         }
 
-        public async Task AddFeed(FeedItemRequest item)
+        public async Task<bool> AddFeed(FeedItemRequest item)
         {
-            await K_AkicaClient.AddFeedItemAsync(item);
+            return await K_AkicaClient.AddFeedItemAsync(item);
         }
 
         public void Test()

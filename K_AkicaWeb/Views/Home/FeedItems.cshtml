@@ -1,29 +1,49 @@
-﻿@model IEnumerable<K_Akica.API.Contracts.Models.FeedItem>
+﻿@model IEnumerable<FeedItemViewModel>
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @addTagHelper *, K_AkicaWeb
 
 
-        <h1 class="project-name">Activity feed</h1>
-    
-        <div id="feedTimeline" >
-            <div id="feedHolder" class="container">
+<h1 class="project-name">Activity feed</h1>
 
-                @foreach (var item in Model)
+<div id="feedTimeline">
+    <div id="feedHolder" class="container">
+
+        @foreach (var item in Model)
+        {
+            string imgSrc = "img/" + item.DurationIcon + ".svg";
+        <div class="timeline-item">
+            <div class="timeline-icon">
+                <img src="@imgSrc" />
+            </div>
+            <div class="timeline-content @item.ContentClass">
+                <div class="timeline-header">
+                    <span>@item.Time</span>
+                    @if (item.Poop)
+                    {
+                        <i class="fas fa-poo"></i>
+                    }
+                    @if (item.Wizz)
+                    {
+                        <i class="fa fa-tint"></i>
+                    }
+                    @if (!item.Poop && !item.Wizz)
+                    {
+                        <i class="fa fa-info"></i>
+                    }
+                </div>
+
+                @if (item.Description.Any())
                 {
-                    <div class="timeline-item">
-                        <div class="timeline-icon"></div>
-                        <div class="timeline-content">
-                            <h2>@item.Timestamp.ToString("yyyy/MM/dd HH:mm:ss")</h2>
-                            <p>
-                                @foreach (var line in item.Description?.Split(Environment.NewLine) ?? new string[] { })
-                                {
-                                    @line
-                                    <br />
-                                }
-                            </p>
-                        </div>
-                    </div>
+                    <p>
+                        @foreach (var line in item.Description)
+                        {
+                            @line <br />
+                        }
+                    </p>
                 }
-                <partial name="AddFeed" model="new K_Akica.API.Contracts.Communication.FeedItemRequest()" />
             </div>
         </div>
+        }
+    </div>
+        <partial name="AddFeed" model="new K_Akica.API.Contracts.Communication.FeedItemRequest()" />
+</div>

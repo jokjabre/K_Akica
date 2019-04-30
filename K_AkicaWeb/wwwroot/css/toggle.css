@@ -1,8 +1,8 @@
 ﻿.switch {
   position: relative;
   display: inline-block;
-  width: 4rem;
-  height: calc(4rem * 0.5); }
+  width: calc(3rem * 1.5);
+  height: calc(3rem * 0.5); }
   .switch input {
     display: none; }
   .switch .slider {
@@ -20,8 +20,8 @@
     position: absolute;
     z-index: 2;
     content: "";
-    height: calc(4rem * 0.5);
-    width: calc(4rem * 0.5);
+    height: calc(3rem * 0.5);
+    width: calc(3rem * 0.5);
     background-color: darkslategrey;
     -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.22);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.22);
@@ -32,37 +32,37 @@
     left: 0;
     z-index: 1;
     content: attr(data-on);
-    font-size: calc(4rem * 0.13);
+    font-size: calc(3rem * 0.3);
     text-align: left !important;
-    line-height: calc(4rem * 0.5);
+    line-height: calc(3rem * 0.5);
     padding-left: 0;
-    width: 4rem;
+    width: calc(3rem * 1.5);
     color: #fff;
-    height: calc(4rem * 0.5);
-    border-radius: calc(4rem * 0.5);
+    height: calc(3rem * 0.5);
+    border-radius: calc(3rem * 0.5);
     background-color: #ff6418;
-    -webkit-transform: translateX(-4rem);
-    -ms-transform: translateX(-4rem);
-    transform: translateX(-4rem);
+    -webkit-transform: translateX(-3rem);
+    -ms-transform: translateX(-3rem);
+    transform: translateX(-3rem);
     transition: all 0.4s ease-in-out; }
 
 input:checked ~ .slider:after {
   -webkit-transform: translateX(0px);
   -ms-transform: translateX(0px);
   transform: translateX(0px);
-  padding-left: 10%; }
+  padding-left: 0.5rem; }
 
 input:checked ~ .slider:before {
   background-color: #fff; }
 
 input:checked ~ .slider:before {
-  -webkit-transform: translateX(calc(4rem * 0.5));
-  -ms-transform: translateX(calc(4rem * 0.5));
-  transform: translateX(calc(4rem * 0.5)); }
+  -webkit-transform: translateX(3rem);
+  -ms-transform: translateX(3rem);
+  transform: translateX(3rem); }
 
 /* Rounded sliders */
 .slider.round {
-  border-radius: calc(4rem * 0.5); }
+  border-radius: calc(3rem * 0.5); }
 
 .slider.round:before {
   border-radius: 50%; }
@@ -72,8 +72,8 @@ input:checked ~ .slider:before {
   left: 0;
   color: darkslategrey;
   text-align: right !important;
-  font-size: calc(4rem * 0.13);
-  width: calc(100% - 10%);
-  height: calc(4rem * 0.5);
-  line-height: calc(4rem * 0.5);
+  font-size: calc(3rem * 0.3);
+  width: calc(100% - 0.5rem);
+  height: calc(3rem * 0.5);
+  line-height: calc(3rem * 0.5);
   cursor: pointer; }

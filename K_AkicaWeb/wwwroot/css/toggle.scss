@@ -1,12 +1,13 @@
-﻿$base: 4rem;
-$pad: 10%;
+﻿$base: 3rem;
+$pad: 0.5rem;
 $sliderSize: calc(#{$base} * 0.5);
-$fntSize: calc(#{$base} * 0.13);
+$sliderWidth: calc(#{$base} * 1.5);
+$fntSize: calc(#{$base} * 0.3);
 
 .switch {
     position: relative;
     display: inline-block;
-    width: $base;
+    width: $sliderWidth;
     height: $sliderSize;
 
 
@@ -50,7 +51,7 @@ $fntSize: calc(#{$base} * 0.13);
         text-align: left !important;
         line-height: $sliderSize;
         padding-left: 0;
-        width: $base;
+        width: $sliderWidth;
         color: #fff;
         height: $sliderSize;
         border-radius: $sliderSize;
@@ -74,9 +75,9 @@ input:checked ~ .slider:before {
 }
 
 input:checked ~ .slider:before {
-    -webkit-transform: translateX($sliderSize);
-    -ms-transform: translateX($sliderSize);
-    transform: translateX($sliderSize);
+    -webkit-transform: translateX($base);
+    -ms-transform: translateX($base);
+    transform: translateX($base);
 }
 
 /* Rounded sliders */

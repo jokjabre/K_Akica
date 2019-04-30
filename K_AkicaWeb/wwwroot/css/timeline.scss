@@ -16,7 +16,7 @@ $base-font-title: "Dosis", arial, tahoma, verdana;
 $base-font-color: #726f77;
 
 // Timeline
-$timeline-color: $primary-color;
+$timeline-color: #5ecae8;
 
 
 // Mixins and Placeholders
@@ -41,8 +41,6 @@ $timeline-color: $primary-color;
     -moz-box-sizing: border-box;
 }
 
-
-
 img {
     max-width: 100%;
 }
@@ -61,7 +59,7 @@ img {
         &:before {
             content: "";
             width: 3px;
-            height: 82%;
+            height: calc(100% + 10px);
             background: $timeline-color;
             left: 50%;
             top: 35px;
@@ -74,90 +72,105 @@ img {
             display: table;
             width: 100%;
         }
+    }
 
-        #newFeedItem {
+    #newFeedItem {
+        margin-bottom: 2rem;
 
-            .timeline-item {
-                width: 45%;
+        .timeline-item {
+            width: 45%;
+        }
+
+        .timeline-content {
+            float: none;
+            width: 45%;
+            margin-top: 50px;
+
+            &:before {
+                left: 49.5%;
+                top: -14px;
+                border-top: 7px solid transparent;
+                border-bottom: 7px solid $timeline-color;
+                border-left: 7px solid transparent;
+                border-right: 7px solid transparent;
+            }
+        }
+    }
+
+    .timeline-item {
+        margin-bottom: 1rem;
+        position: relative;
+        @extend %clearfix;
+
+        .timeline-icon {
+            background: $timeline-color;
+            width: 3rem;
+            height: 3rem;
+            position: absolute;
+            top: 0.7rem;
+            left: 50%;
+            overflow: hidden;
+            margin-left: -1.425rem;
+            @include prefix(border-radius, 50%);
+        }
+
+        .timeline-content {
+            width: 45%;
+            background: #fff;
+            /*padding: 0.6rem;*/
+            @include prefix(box-shadow, 10px 11px 20px 0px rgba(0, 0, 0, 0.48));
+            @include prefix(border-radius, 2rem);
+            @include prefix(transition, all .3s ease);
+
+            &.empty-content .timeline-header{
+                height: 5rem;
+                padding-top: 0.8rem;
+                @include prefix(border-radius, 2rem 2rem 2rem 2rem);
             }
 
-            .timeline-content {
-                float: none;
-                width: 45%;
-                margin-top: 50px;
+            .timeline-header {
+                font-size: 2rem;
+                padding-left: 1rem;
+                color: #fff;
+                background: $timeline-color;
+                /*margin: -10px -10px 0px -10px;*/
+                @include prefix(border-radius, 2rem 2rem 0px 0px);
 
-                &:before {
-                    left: 49.5%;
-                    top: -14px;
-                    border-top: 7px solid transparent;
-                    border-bottom: 7px solid $timeline-color;
-                    border-left: 7px solid transparent;
-                    border-right: 7px solid transparent;
+                i {
+                    float: right;
+                    padding-right: 2rem;
+                    line-height: 3rem;
                 }
+            }
+
+            p {
+                word-wrap: break-word;
+                min-height: 1rem;
+                padding: 0 0 1rem 1rem;
+            }
+
+            &:before {
+                content: '';
+                position: absolute;
+                left: 45%;
+                top: 2rem;
+                width: 0;
+                height: 0;
+                border-top: 7px solid transparent;
+                border-bottom: 7px solid transparent;
+                border-left: 7px solid $timeline-color;
             }
         }
 
-        .timeline-item {
-            margin-bottom: 1rem;
-            position: relative;
-            @extend %clearfix;
+        &:nth-of-type(2n) .timeline-content {
+            float: right;
 
-            .timeline-icon {
-                background: $timeline-color;
-                width: 3rem;
-                height: 3rem;
-                position: absolute;
-                top: 0.7rem;
-                left: 50%;
-                overflow: hidden;
-                margin-left: -1.425rem;
-                @include prefix(border-radius, 50%);
-            }
-
-            .timeline-content {
-                width: 45%;
-                background: #fff;
-                padding: 0.6rem;
-                @include prefix(box-shadow, 10px 11px 20px 0px rgba(0, 0, 0, 0.48));
-                @include prefix(border-radius, 2rem);
-                @include prefix(transition, all .3s ease);
-
-                h2 {
-                    padding: 15px;
-                    background: $timeline-color;
-                    color: #fff;
-                    margin: -10px -10px 0px -10px;
-                    font-weight: 300;
-                    @include prefix(border-radius, 2rem 2rem 0px 0px);
-                }
-
-                p {
-                    word-wrap: break-word;
-                }
-
-                &:before {
-                    content: '';
-                    position: absolute;
-                    left: 45%;
-                    top: 30px;
-                    width: 0;
-                    height: 0;
-                    border-top: 7px solid transparent;
-                    border-bottom: 7px solid transparent;
-                    border-left: 7px solid $timeline-color;
-                }
-            }
-
-            &:nth-of-type(2n) .timeline-content {
-                float: right;
-
-                &:before {
-                    content: '';
-                    right: 45%;
-                    left: inherit;
-                    border-left: 0;
-                    border-right: 7px solid $timeline-color;
-                }
+            &:before {
+                content: '';
+                right: 45%;
+                left: inherit;
+                border-left: 0;
+                border-right: 7px solid $timeline-color;
             }
         }
     }
