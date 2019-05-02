@@ -3,10 +3,6 @@
     "outputFile": "wwwroot/css/timeline.css",
     "inputFile": "wwwroot/css/timeline.scss"
   },
-  {
-    "outputFile": "wwwroot/css/switch.css",
-    "inputFile": "wwwroot/css/switch.scss"
-  },
  
   {
     "outputFile": "wwwroot/css/toggle.css",

@@ -34,7 +34,7 @@ namespace K_AkicaWeb.Models
             ContentClass = string.IsNullOrWhiteSpace(item.Description) ? "empty-content" : string.Empty;
 
             int[] vals = new int[] { 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60 };
-            DurationIcon = vals.FirstOrDefault(v => item.Duration.TotalMinutes < v).ToString();
+            DurationIcon = vals.FirstOrDefault(v => item.Duration.TotalMinutes <= v).ToString();
         }
     }
 }

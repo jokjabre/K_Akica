@@ -1,8 +1,15 @@
 ﻿$base: 3rem;
-$pad: 0.5rem;
-$sliderSize: calc(#{$base} * 0.5);
-$sliderWidth: calc(#{$base} * 1.5);
+$pad: calc(#{$base} / 6);
+
+$sliderSize: calc(#{$base} * 0.7);
+$sliderWidth: calc(#{$base} + #{$sliderSize});
 $fntSize: calc(#{$base} * 0.3);
+
+$backColorOn: #ff6418;
+$backColorOff: #f2f2f2;
+
+$frontColorOn: #fff;
+$frontColorOff: darkslategrey;
 
 .switch {
     position: relative;
@@ -24,79 +31,79 @@ $fntSize: calc(#{$base} * 0.3);
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: #f2f2f2;
+        background-color: $backColorOff;
         -webkit-transition: .4s;
         transition: .4s;
+
+
+        &:before {
+            position: absolute;
+            z-index: 2;
+            content: "";
+            height: $sliderSize;
+            width: $sliderSize;
+            background-color: $frontColorOff;
+            -webkit-transition: .4s;
+            transition: all 0.4s ease-in-out;
+        }
+
+        &:after {
+            position: absolute;
+            left: 0;
+            z-index: 1;
+            content: attr(data-on);
+            font-size: $fntSize;
+            text-align: left !important;
+            line-height: $sliderSize;
+            padding-left: 0;
+            width: $sliderWidth;
+            color: $frontColorOn;
+            height: $sliderSize;
+            border-radius: $sliderSize;
+            background-color: $backColorOn;
+            -webkit-transform: translateX(-$base);
+            -ms-transform: translateX(-$base);
+            transform: translateX(-$base);
+            visibility: hidden;
+            transition: all 0.4s ease-in-out;
+        }
+        /* Rounded sliders */
+        &.round {
+            border-radius: $sliderSize;
+
+            &:before {
+                border-radius: 50%;
+            }
+        }
     }
 
-    .slider:before {
-        position: absolute;
-        z-index: 2;
-        content: "";
-        height: $sliderSize;
-        width: $sliderSize;
-        background-color: darkslategrey;
-        -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.22);
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.22);
-        -webkit-transition: .4s;
-        transition: all 0.4s ease-in-out;
+    input:checked ~ .slider {
+
+        &:after {
+            -webkit-transform: translateX(0px);
+            -ms-transform: translateX(0px);
+            transform: translateX(0px);
+            padding-left: $pad;
+            visibility: visible;
+        }
+
+        &:before {
+            background-color: $frontColorOn;
+            -webkit-transform: translateX($base);
+            -ms-transform: translateX($base);
+            transform: translateX($base);
+        }
     }
 
-    .slider:after {
+    .absolute-no {
         position: absolute;
         left: 0;
-        z-index: 1;
-        content: attr(data-on);
+        color: $frontColorOff;
+        text-align: right !important;
         font-size: $fntSize;
-        text-align: left !important;
-        line-height: $sliderSize;
-        padding-left: 0;
-        width: $sliderWidth;
-        color: #fff;
+        width: calc(100% - #{$pad});
         height: $sliderSize;
-        border-radius: $sliderSize;
-        background-color: #ff6418;
-        -webkit-transform: translateX(-$base);
-        -ms-transform: translateX(-$base);
-        transform: translateX(-$base);
-        transition: all 0.4s ease-in-out;
+        line-height: $sliderSize;
+        cursor: pointer;
     }
-}
-
-input:checked ~ .slider:after {
-    -webkit-transform: translateX(0px);
-    -ms-transform: translateX(0px);
-    transform: translateX(0px);
-    padding-left: $pad;
-}
-
-input:checked ~ .slider:before {
-    background-color: #fff;
-}
-
-input:checked ~ .slider:before {
-    -webkit-transform: translateX($base);
-    -ms-transform: translateX($base);
-    transform: translateX($base);
-}
-
-/* Rounded sliders */
-.slider.round {
-    border-radius: $sliderSize;
-}
-
-.slider.round:before {
-    border-radius: 50%;
-}
-
-.absolute-no {
-    position: absolute;
-    left: 0;
-    color: darkslategrey;
-    text-align: right !important;
-    font-size: $fntSize;
-    width: calc(100% - #{$pad});
-    height: $sliderSize;
-    line-height: $sliderSize;
-    cursor: pointer;
 }

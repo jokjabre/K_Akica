@@ -24,5 +24,13 @@ var selectorMap = {
     clickedClass: ".clicked",
     pooperHolderClickedSelector: ".pooperHolder.clicked",
     feedTimelineId: "#feedTimeline",
-    newFeedItemId: "#newFeedItem"
+    newFeedItemId: "#newFeedItem",
+
+    newItemPoop: "#newFeedItem :checkbox[name='Poop']",
+    newItemWizz: "#newFeedItem :checkbox[name='Wizz']",
+
+    newItemDuration: "#newFeedItem [name='Duration']",
+    newItemDescription: "#newFeedItem [name='Description']"
+
+
 };

@@ -31,3 +31,21 @@ main {
     text-align: center;
     padding: 10px 0;
 }
+
+div .flex {
+    display: flex;
+    justify-content:space-between;
+}
+
+div .flex-col {
+    display: flex;
+    flex-flow: column;
+}
+
+div .flex-1 {
+    flex: 1;
+}
+
+div .flex-0 {
+    flex: 0;
+}

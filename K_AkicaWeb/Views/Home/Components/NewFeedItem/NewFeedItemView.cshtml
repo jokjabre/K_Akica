@@ -1,0 +1,76 @@
+﻿<div class="timeline-item container" id="newFeedItem">
+    <div class="timeline-content">
+        <div class="timeline-header">Add new</div>
+
+            <div class="flex flex-1">
+
+                <div class="flex-col flex-0">
+                    
+                    <div class="flex">
+                        @await Component.InvokeAsync("Toggle", "Poop")
+                        @await Component.InvokeAsync("Toggle", "Wizz")
+                    </div>
+
+
+                    <div class="flex-1 pad">
+                        @await Component.InvokeAsync("Knob", "Duration")
+                    </div>
+
+                </div>
+
+                <div class="flex flex-1 pad">
+                    <textarea class="flex-1" name="Description" placeholder="Description" id="Description"></textarea>
+                </div>
+
+            </div>
+
+            <div >
+                <button type="button" class="btn btn-primary" onclick="refreshFeed()">Save</button>
+            </div>
+
+    </div>
+</div>
+<script>
+
+function GetDataFromNewFeed() {
+
+    var poop = $(selectorMap.newItemPoop).prop("checked");
+    var wizz = $(selectorMap.newItemWizz).prop("checked");
+
+    var minutes = $(selectorMap.newItemDuration).val();
+    var duration = minutes < 60 ? "00:" + minutes + ":00" : "01:00:00";
+
+    var description = $(selectorMap.newItemDescription).val();
+    var pooperId = getPooperId();
+
+    return {
+        Poop: poop,
+        Wizz: wizz,
+
+        Duration: duration,
+        Description: description,
+        PooperId: pooperId
+    };
+}
+
+function refreshFeed() {
+    event.preventDefault();
+
+    var dt = GetDataFromNewFeed();
+
+    $.ajax({
+        type: "POST",
+        url: './Home/AddFeed',
+        data: dt,
+        success: function () {
+
+            populateFromControllerAction(
+                linkMap.feed,
+                { id: dt.PooperId },
+                selectorMap.pooperFeedId,
+                null,
+                scrollToNewFeedItem);
+        }
+    });
+}
+</script>

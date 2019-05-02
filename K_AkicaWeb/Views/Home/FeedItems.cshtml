@@ -10,40 +10,10 @@
 
         @foreach (var item in Model)
         {
-            string imgSrc = "img/" + item.DurationIcon + ".svg";
-        <div class="timeline-item">
-            <div class="timeline-icon">
-                <img src="@imgSrc" />
-            </div>
-            <div class="timeline-content @item.ContentClass">
-                <div class="timeline-header">
-                    <span>@item.Time</span>
-                    @if (item.Poop)
-                    {
-                        <i class="fas fa-poo"></i>
-                    }
-                    @if (item.Wizz)
-                    {
-                        <i class="fa fa-tint"></i>
-                    }
-                    @if (!item.Poop && !item.Wizz)
-                    {
-                        <i class="fa fa-info"></i>
-                    }
-                </div>
-
-                @if (item.Description.Any())
-                {
-                    <p>
-                        @foreach (var line in item.Description)
-                        {
-                            @line <br />
-                        }
-                    </p>
-                }
-            </div>
-        </div>
+            @await Component.InvokeAsync("TimelineItem", item)
         }
+
+
     </div>
-        <partial name="AddFeed" model="new K_Akica.API.Contracts.Communication.FeedItemRequest()" />
+            @await Component.InvokeAsync("NewFeedItem")
 </div>
