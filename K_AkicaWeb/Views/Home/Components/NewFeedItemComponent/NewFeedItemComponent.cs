@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace K_AkicaWeb.Views.Home.Components.AddFeed
 {
-    public class NewFeedItem : ViewComponent
+    public class NewFeedItemComponent : ViewComponent
     {
         public IViewComponentResult Invoke()
         {

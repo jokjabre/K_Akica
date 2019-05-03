@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace K_AkicaWeb.Views.Home.Components.KnobControl
 {
     [ViewComponent]
-    public class Knob : ViewComponent
+    public class KnobComponent : ViewComponent
     {
         public IViewComponentResult Invoke(string text)
         {

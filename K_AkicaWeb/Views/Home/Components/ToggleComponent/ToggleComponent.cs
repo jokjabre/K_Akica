@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace K_AkicaWeb.Views.Components.Toggle
 {
     [ViewComponent]
-    public class Toggle : ViewComponent
+    public class ToggleComponent : ViewComponent
     {
         public IViewComponentResult Invoke(string text)
         {

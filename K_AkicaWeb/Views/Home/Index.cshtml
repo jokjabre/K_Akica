@@ -2,9 +2,9 @@
     ViewData["Title"] = "Home Page";
 }
 
-<partial name="PoopersList" />
+@await Component.InvokeAsync("PooperListComponent")
 
-<div  class="fullHeight" id="pooperFeed"></div>
+<div class="fullHeight" id="pooperFeed"></div>
 
 
 

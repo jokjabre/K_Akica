@@ -29,19 +29,12 @@ namespace K_AkicaWeb.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public PartialViewResult PoopersList()
-        {
-            var poopers = K_AkicaClient.GetAllPoopersAsync().Result;
-
-            return PartialView(poopers);
-        }
-
-        public async Task<PartialViewResult> FeedItems(int id)
+        public async Task<ViewComponentResult> FeedItems(int id)
         {
             var feed = await K_AkicaClient.GetFeedForPooperAsync(id);
             var model = feed.Select(e => new FeedItemViewModel(e));
 
-            return PartialView(model);
+            return ViewComponent("FeedItemsComponent", model);
         }
 
         public async Task<bool> AddFeed(FeedItemRequest item)
@@ -49,9 +42,5 @@ namespace K_AkicaWeb.Controllers
             return await K_AkicaClient.AddFeedItemAsync(item);
         }
 
-        public void Test()
-        {
-
-        }
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace K_AkicaWeb.Views.Home.Components.TimelineItem
 {
     [ViewComponent]
-    public class TimelineItem : ViewComponent
+    public class TimelineItemComponent : ViewComponent
     {
         public IViewComponentResult Invoke(FeedItemViewModel model)
         {

@@ -1,7 +1,4 @@
 ﻿@model IEnumerable<FeedItemViewModel>
-@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@addTagHelper *, K_AkicaWeb
-
 
 <h1 class="project-name">Activity feed</h1>
 
@@ -10,10 +7,12 @@
 
         @foreach (var item in Model)
         {
-            @await Component.InvokeAsync("TimelineItem", item)
+            @await Component.InvokeAsync("TimelineItemComponent", item)
         }
 
-
     </div>
-            @await Component.InvokeAsync("NewFeedItem")
+
+    @await Component.InvokeAsync("NewFeedItemComponent")
+
 </div>
+
