@@ -1,58 +1,30 @@
-﻿@import "https://fonts.googleapis.com/css?family=Dosis:300,400,500,600,700";
+﻿@import "variables.scss";
 
-// Variables
-$bg-body: #f9f9f9;
+$middle-line-size: .2rem;
+$arrow-border-size: .8rem;
 
-$red: #ee4d4d;
-$blue: #2b2e48;
-$primary-color: $red;
-$secondary-color: $blue;
-
-$base-font-color: #726f77;
-
-// Timeline
-$timeline-color: #5ecae8;
-
-
-// Mixins and Placeholders
-%clearfix {
-    &:after, &:before {
-        content: '';
-        display: block;
-        width: 100%;
-        clear: both;
-    }
-}
-
-@mixin prefix($prop, $val) {
-    @each $prefix in '-webkit-', '-moz-', '-ms-', '' {
-        #{$prefix}#{$prop}: $val;
-    }
-}
 
 *, *:before, *:after {
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
+    @include vendorPrefixed(box-sizing, border-box);
 }
 
-img {
-    max-width: 100%;
-}
+
 
 #feedTimeline {
     padding-bottom: 30px;
     padding-top: 10px;
 
+    img {
+        max-width: 100%;
+    }
     // Timeline
     #feedHolder {
         width: 100%;
         position: relative;
         padding: 20px 20px;
-        @include prefix(transition, all .4s ease);
-
-        background-image: linear-gradient($timeline-color, $timeline-color);
-        background-size: 3px 100%;
+        @include vendorPrefixed(transition, all .4s ease);
+        background-image: linear-gradient($color-primary, $color-primary);
+        background-size: $middle-line-size 100%;
         background-repeat: no-repeat;
         background-position: center 3rem;
     }
@@ -64,22 +36,25 @@ img {
             width: 45%;
         }
 
+        /*&:before {
+            position: absolute;
+            width: 0;
+            height: 0;
+            top: 0%; 
+            margin-left: -#{$arrow-border-size};
+            margin-top: calc(-1 * #{$arrow-border-size} * 0.99);
+            border-bottom: $arrow-border-size solid $color-primary;
+            border-left: $arrow-border-size solid transparent;
+            border-right: $arrow-border-size solid transparent;
+        }*/
+
         .timeline-content {
             float: none;
             width: 45%;
             margin: auto;
 
             &:before {
-                left: 49.45%;
-                top: -14px;
-                border-top: 7px solid transparent;
-                border-bottom: 7px solid $timeline-color;
-                border-left: 7px solid transparent;
-                border-right: 7px solid transparent;
-            }
-
-            & .pad {
-                margin: .5rem;
+                display:none;
             }
 
             & textarea {
@@ -97,7 +72,7 @@ img {
         @extend %clearfix;
 
         .timeline-icon {
-            background: $timeline-color;
+            background: $color-primary;
             width: 3rem;
             height: 3rem;
             position: absolute;
@@ -105,29 +80,29 @@ img {
             left: 50%;
             overflow: hidden;
             margin-left: -1.425rem;
-            @include prefix(border-radius, 50%);
+            @include vendorPrefixed(border-radius, 50%);
         }
 
         .timeline-content {
             width: 45%;
-            background: #fff;
+            background: $color-secondary;
             /*padding: 0.6rem;*/
-            @include prefix(box-shadow, 10px 11px 20px 0px rgba(0, 0, 0, 0.48));
-            @include prefix(border-radius, 2rem);
-            @include prefix(transition, all .3s ease);
+            @include vendorPrefixed(box-shadow, 10px 11px 20px 0px $color-shadow);
+            @include vendorPrefixed(border-radius, 2rem);
+            @include vendorPrefixed(transition, all .3s ease);
 
             &.empty-content .timeline-header {
                 height: 5rem;
                 padding-top: 0.8rem;
-                @include prefix(border-radius, 2rem 2rem 2rem 2rem);
+                @include vendorPrefixed(border-radius, 2rem 2rem 2rem 2rem);
             }
 
             .timeline-header {
                 font-size: 2rem;
                 padding-left: 1rem;
-                color: #fff;
-                background: $timeline-color;
-                @include prefix(border-radius, 2rem 2rem 0px 0px);
+                /*color: $color-secondary;
+                background: $color-primary;*/
+                @include vendorPrefixed(border-radius, 2rem 2rem 0px 0px);
 
                 i {
                     float: right;
@@ -149,9 +124,9 @@ img {
                 top: 2rem;
                 width: 0;
                 height: 0;
-                border-top: 7px solid transparent;
-                border-bottom: 7px solid transparent;
-                border-left: 7px solid $timeline-color;
+                border-top: $arrow-border-size solid transparent;
+                border-bottom: $arrow-border-size solid transparent;
+                border-left: $arrow-border-size solid $color-primary;
             }
         }
 
@@ -163,7 +138,7 @@ img {
                 right: 45%;
                 left: inherit;
                 border-left: 0;
-                border-right: 7px solid $timeline-color;
+                border-right: $arrow-border-size solid $color-primary;
             }
         }
     }
@@ -188,7 +163,7 @@ img {
                         left: 10%;
                         margin-left: -6px;
                         border-left: 0;
-                        border-right: 7px solid $timeline-color;
+                        border-right: 7px solid $color-primary;
                     }
                 }
 

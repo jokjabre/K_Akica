@@ -1,12 +1,12 @@
 ﻿<div class="timeline-item container" id="newFeedItem">
     <div class="timeline-content">
-        <div class="timeline-header">Add new</div>
+        <div class="timeline-header themed-element">Add new</div>
 
             <div class="flex flex-1">
 
                 <div class="flex-col flex-0">
                     
-                    <div class="flex">
+                    <div class="flex pad">
                         @await Component.InvokeAsync("ToggleComponent", "Poop")
                         @await Component.InvokeAsync("ToggleComponent", "Wizz")
                     </div>
@@ -24,8 +24,8 @@
 
             </div>
 
-            <div >
-                <button type="button" class="btn btn-primary" onclick="refreshFeed()">Save</button>
+            <div class="pad">
+                <button type="button" class="btn themed-element m-auto d-block" onclick="refreshFeed()">Save</button>
             </div>
 
     </div>

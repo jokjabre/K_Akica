@@ -32,6 +32,10 @@ main {
     padding: 10px 0;
 }
 
+.pad {
+    padding: .5rem !important;
+}
+
 div .flex {
     display: flex;
     justify-content:space-between;

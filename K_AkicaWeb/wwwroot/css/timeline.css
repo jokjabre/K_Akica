@@ -1,4 +1,4 @@
-﻿@import "https://fonts.googleapis.com/css?family=Dosis:300,400,500,600,700";
+﻿/*#726f77;*/
 #feedTimeline .timeline-item:after, #feedTimeline .timeline-item:before {
   content: '';
   display: block;
@@ -6,16 +6,16 @@
   clear: both; }
 
 *, *:before, *:after {
-  box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box; }
-
-img {
-  max-width: 100%; }
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box; }
 
 #feedTimeline {
   padding-bottom: 30px;
   padding-top: 10px; }
+  #feedTimeline img {
+    max-width: 100%; }
   #feedTimeline #feedHolder {
     width: 100%;
     position: relative;
@@ -25,28 +25,33 @@ img {
     -ms-transition: all 0.4s ease;
     transition: all 0.4s ease;
     background-image: linear-gradient(#5ecae8, #5ecae8);
-    background-size: 3px 100%;
+    background-size: 0.2rem 100%;
     background-repeat: no-repeat;
     background-position: center 3rem; }
-  #feedTimeline #newFeedItem .timeline-item {
-    width: 45%; }
-  #feedTimeline #newFeedItem .timeline-content {
-    float: none;
-    width: 45%;
-    margin: auto; }
-    #feedTimeline #newFeedItem .timeline-content:before {
-      left: 49.45%;
-      top: -14px;
-      border-top: 7px solid transparent;
-      border-bottom: 7px solid #5ecae8;
-      border-left: 7px solid transparent;
-      border-right: 7px solid transparent; }
-    #feedTimeline #newFeedItem .timeline-content .pad {
-      margin: .5rem; }
-    #feedTimeline #newFeedItem .timeline-content textarea {
-      resize: none;
-      width: 100%;
-      height: 100%; }
+  #feedTimeline #newFeedItem {
+    /*&:before {
+            position: absolute;
+            width: 0;
+            height: 0;
+            top: 0%; 
+            margin-left: -0.8rem;
+            margin-top: calc(-1 * 0.8rem * 0.99);
+            border-bottom: $arrow-border-size solid $color-primary;
+            border-left: $arrow-border-size solid transparent;
+            border-right: $arrow-border-size solid transparent;
+        }*/ }
+    #feedTimeline #newFeedItem .timeline-item {
+      width: 45%; }
+    #feedTimeline #newFeedItem .timeline-content {
+      float: none;
+      width: 45%;
+      margin: auto; }
+      #feedTimeline #newFeedItem .timeline-content:before {
+        display: none; }
+      #feedTimeline #newFeedItem .timeline-content textarea {
+        resize: none;
+        width: 100%;
+        height: 100%; }
   #feedTimeline .timeline-item {
     margin-bottom: 1rem;
     position: relative; }
@@ -65,7 +70,7 @@ img {
       border-radius: 50%; }
     #feedTimeline .timeline-item .timeline-content {
       width: 45%;
-      background: #fff;
+      background: #f9f9f9;
       /*padding: 0.6rem;*/
       -webkit-box-shadow: 10px 11px 20px 0px rgba(0, 0, 0, 0.48);
       -moz-box-shadow: 10px 11px 20px 0px rgba(0, 0, 0, 0.48);
@@ -89,8 +94,8 @@ img {
       #feedTimeline .timeline-item .timeline-content .timeline-header {
         font-size: 2rem;
         padding-left: 1rem;
-        color: #fff;
-        background: #5ecae8;
+        /*color: $color-secondary;
+                background: $color-primary;*/
         -webkit-border-radius: 2rem 2rem 0px 0px;
         -moz-border-radius: 2rem 2rem 0px 0px;
         -ms-border-radius: 2rem 2rem 0px 0px;
@@ -110,9 +115,9 @@ img {
         top: 2rem;
         width: 0;
         height: 0;
-        border-top: 7px solid transparent;
-        border-bottom: 7px solid transparent;
-        border-left: 7px solid #5ecae8; }
+        border-top: 0.8rem solid transparent;
+        border-bottom: 0.8rem solid transparent;
+        border-left: 0.8rem solid #5ecae8; }
     #feedTimeline .timeline-item:nth-of-type(2n) .timeline-content {
       float: right; }
       #feedTimeline .timeline-item:nth-of-type(2n) .timeline-content:before {
@@ -120,7 +125,7 @@ img {
         right: 45%;
         left: inherit;
         border-left: 0;
-        border-right: 7px solid #5ecae8; }
+        border-right: 0.8rem solid #5ecae8; }
 
 /*@media screen and (max-width: 768px) {
         #feedHolder {
@@ -141,7 +146,7 @@ img {
                         left: 10%;
                         margin-left: -6px;
                         border-left: 0;
-                        border-right: 7px solid $timeline-color;
+                        border-right: 7px solid $color-primary;
                     }
                 }
 

@@ -10,6 +10,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\css\theme.css" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="compilerconfig.json" />
     <None Include="wwwroot\js\Components\knob.js" />
   </ItemGroup>
