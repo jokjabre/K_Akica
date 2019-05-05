@@ -11,8 +11,6 @@ html, body, main {
 main {
     display: flex;
 }
-
-
 #pooperFeed {
     flex: 1 0;
 
@@ -36,20 +34,23 @@ main {
     padding: .5rem !important;
 }
 
-div .flex {
+.flex {
     display: flex;
     justify-content:space-between;
 }
 
-div .flex-col {
-    display: flex;
-    flex-flow: column;
-}
 
-div .flex-1 {
+.flex-1 {
     flex: 1;
 }
 
-div .flex-0 {
+.flex-0 {
     flex: 0;
 }
+
+.flex-mutating {
+    overflow: hidden;
+    display: flex;
+    flex-flow: row;
+}
+

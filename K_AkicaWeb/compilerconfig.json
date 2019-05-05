@@ -14,5 +14,9 @@
   {
     "outputFile": "wwwroot/css/variables.css",
     "inputFile": "wwwroot/css/variables.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/sidenav.css",
+    "inputFile": "wwwroot/css/sidenav.scss"
   }
 ]
