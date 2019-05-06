@@ -3,6 +3,7 @@
 
 // Write your JavaScript code.
 
+
 function getPooperId() {
     return $(selectorMap.pooperHolderClickedSelector).data(dataMap.pooperId);
 }
@@ -14,12 +15,17 @@ function setClass(elem, className, removeFromSiblings) {
     $(elem).addClass(className);
 }
 
-function populateFromControllerAction(route, obj, selector, funcPre, funcPost) {
+function populateFromControllerAction(route, obj, selector, funcPre, funcPost, prepand) {
     if (funcPre) { funcPre(); }
 
     $.get(route, obj, function (data) {
-        $(selector).html(data);
-        makeKnobs();
+        if (prepand) {
+            $(selector).prepend(data);
+        }
+        else {
+            $(selector).html(data);
+        }
+
         if (funcPost) { funcPost(); }
     });
 }
@@ -30,13 +36,21 @@ function scrollToNewFeedItem() {
     div.scrollTop(div[0].scrollHeight * 10.2);
 }
 
+function pooperHolderClickFuncPost() {
+    makeKnobs();
+    scrollToNewFeedItem();
+    attachToScrollEvent();
+}
+
 function onPooperHolderClick(pId, elem) {
+    valMap.pageNum = 1;
+
     populateFromControllerAction(
-        linkMap.feed,
-        { id: pId },
+        linkMap.feed + "?pageNum=" + valMap.pageNum,
+        { id: pId, pageNum: valMap.pageNum },
         selectorMap.pooperFeedId,
         setClass(elem, classMap.clicked, true),
-        scrollToNewFeedItem);
+        pooperHolderClickFuncPost);
 }
 
 

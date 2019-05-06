@@ -40,3 +40,24 @@ function refreshFeed() {
         }
     });
 }
+
+function attachToScrollEvent() {
+
+    $(selectorMap.feedTimelineId).scroll(function () {
+        if ($(this).scrollTop() === 0) {
+            valMap.pageNum++;
+            loadNewPage();
+        }
+    });
+}
+
+function loadNewPage() {
+    
+    populateFromControllerAction(
+        linkMap.feed + "?pageNum=" + valMap.pageNum,
+        { id: getPooperId() },
+        selectorMap.feedHolderId,
+        null,
+        null,
+        true);
+}

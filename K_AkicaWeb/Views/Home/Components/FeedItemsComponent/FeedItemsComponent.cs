@@ -9,9 +9,11 @@ namespace K_AkicaWeb.Views.Home.Components.FeedItems
 {
     public class FeedItemsComponent : ViewComponent
     {
-        public IViewComponentResult Invoke(IEnumerable<FeedItemViewModel> model)
+        public IViewComponentResult Invoke(IEnumerable<FeedItemViewModel> model, bool isPlain)
         {
-            return View("FeedItemsView", model);
+            return isPlain ?
+                View("PlainFeedItemsView", model) :
+                View("FeedItemsView", model);
         }
     }
 }

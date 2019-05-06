@@ -22,7 +22,7 @@ namespace K_Akica.API.Controllers
         }
 
         // GET: api/FeedItems
-        [HttpGet(Name ="GetAllFeedItems")]
+        [HttpGet(Name = "GetAllFeedItems")]
         public async Task<IEnumerable<FeedItem>> Get()
         {
             return await m_context.FeedItems.ToListAsync();
@@ -36,9 +36,17 @@ namespace K_Akica.API.Controllers
         }
 
         [HttpPost("pooper/{id}", Name = "GetFeedForPooper")]
-        public async Task<IEnumerable<FeedItem>> GetForPooper(int id)
+        public async Task<IEnumerable<FeedItem>> GetForPooper(int id, [FromQuery]int? pageNum = 1)
         {
-            return (await m_context.Poopers.FindAsync(id))?.FeedItems;
+            if (pageNum == null || pageNum == 0) pageNum = 1;
+            int itemsPerPage = 10;
+            int skip = itemsPerPage * (pageNum.Value - 1);
+
+            return (await m_context.Poopers.FindAsync(id))?.FeedItems
+                .Reverse()
+                .Skip(skip)
+                .Take(itemsPerPage)
+                .Reverse();
         }
 
         // POST: api/FeedItems

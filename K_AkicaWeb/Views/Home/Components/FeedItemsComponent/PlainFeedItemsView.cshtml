@@ -1,0 +1,7 @@
+﻿@model IEnumerable<FeedItemViewModel>
+
+
+@foreach (var item in Model)
+{
+    @await Component.InvokeAsync("TimelineItemComponent", item)
+}
