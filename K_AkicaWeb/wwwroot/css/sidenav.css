@@ -1,4 +1,5 @@
 ﻿/*#726f77;*/
+/*#5ecae8;*/
 .sidenav {
   z-index: 2;
   overflow: hidden;
@@ -9,9 +10,9 @@
   .sidenav .hoverable {
     cursor: pointer; }
   .sidenav .hoverable:hover {
-    background: #5ecae8; }
+    background: #4484CE; }
   .sidenav .clicked {
-    background: #5ecae8;
+    background: #4484CE;
     color: #f9f9f9; }
   .sidenav .navbar-brand {
     padding-bottom: 2rem; }

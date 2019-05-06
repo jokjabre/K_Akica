@@ -1,4 +1,5 @@
 ﻿/*#726f77;*/
+/*#5ecae8;*/
 #feedTimeline .timeline-item:after, #feedTimeline .timeline-item:before {
   content: '';
   display: block;
@@ -24,39 +25,27 @@
     -moz-transition: all 0.4s ease;
     -ms-transition: all 0.4s ease;
     transition: all 0.4s ease;
-    background-image: linear-gradient(#5ecae8, #5ecae8);
+    background-image: linear-gradient(#4484CE, #4484CE);
     background-size: 0.2rem 100%;
     background-repeat: no-repeat;
     background-position: center 3rem; }
-  #feedTimeline #newFeedItem {
-    /*&:before {
-            position: absolute;
-            width: 0;
-            height: 0;
-            top: 0%; 
-            margin-left: -0.8rem;
-            margin-top: calc(-1 * 0.8rem * 0.99);
-            border-bottom: $arrow-border-size solid $color-primary;
-            border-left: $arrow-border-size solid transparent;
-            border-right: $arrow-border-size solid transparent;
-        }*/ }
-    #feedTimeline #newFeedItem .timeline-item {
-      width: 45%; }
-    #feedTimeline #newFeedItem .timeline-content {
-      float: none;
-      width: 45%;
-      margin: auto; }
-      #feedTimeline #newFeedItem .timeline-content:before {
-        display: none; }
-      #feedTimeline #newFeedItem .timeline-content textarea {
-        resize: none;
-        width: 100%;
-        height: 100%; }
+  #feedTimeline #newFeedItem .timeline-item {
+    width: 45%; }
+  #feedTimeline #newFeedItem .timeline-content {
+    float: none;
+    width: 45%;
+    margin: auto; }
+    #feedTimeline #newFeedItem .timeline-content:before {
+      display: none; }
+    #feedTimeline #newFeedItem .timeline-content textarea {
+      resize: none;
+      width: 100%;
+      height: 100%; }
   #feedTimeline .timeline-item {
     margin-bottom: 1rem;
     position: relative; }
     #feedTimeline .timeline-item .timeline-icon {
-      background: #5ecae8;
+      background: #4484CE;
       width: 3rem;
       height: 3rem;
       position: absolute;
@@ -117,7 +106,7 @@
         height: 0;
         border-top: 0.8rem solid transparent;
         border-bottom: 0.8rem solid transparent;
-        border-left: 0.8rem solid #5ecae8; }
+        border-left: 0.8rem solid #4484CE; }
     #feedTimeline .timeline-item:nth-of-type(2n) .timeline-content {
       float: right; }
       #feedTimeline .timeline-item:nth-of-type(2n) .timeline-content:before {
@@ -125,7 +114,7 @@
         right: 45%;
         left: inherit;
         border-left: 0;
-        border-right: 0.8rem solid #5ecae8; }
+        border-right: 0.8rem solid #4484CE; }
 
 /*@media screen and (max-width: 768px) {
         #feedHolder {

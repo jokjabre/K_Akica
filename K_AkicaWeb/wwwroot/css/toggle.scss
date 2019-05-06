@@ -1,22 +1,23 @@
-﻿$base: 3rem;
+﻿@import "variables.scss";
+
+$base: 3rem;
 $pad: calc(#{$base} / 6);
 
 $sliderSize: calc(#{$base} * 0.7);
 $sliderWidth: calc(#{$base} + #{$sliderSize});
 $fntSize: calc(#{$base} * 0.3);
 
-$backColorOn: #ff6418;
-$backColorOff: #f2f2f2;
+$backColorOn: $color-primary; /*#ff6418;*/
+$backColorOff: $color-secondary; /*#f2f2f2;*/
 
-$frontColorOn: #fff;
-$frontColorOff: darkslategrey;
+$frontColorOn: $color-secondary; /*#fff;*/
+$frontColorOff: $color-primary; /*darkslategrey;*/
 
 .switch {
     position: relative;
     display: inline-block;
     width: $sliderWidth;
     height: $sliderSize;
-
 
     & input {
         display: none;
@@ -70,6 +71,7 @@ $frontColorOff: darkslategrey;
         /* Rounded sliders */
         &.round {
             border-radius: $sliderSize;
+            box-shadow: 0px 0px 0px 1px $color-primary;
 
             &:before {
                 border-radius: 50%;

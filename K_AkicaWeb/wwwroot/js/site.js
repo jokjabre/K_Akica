@@ -19,12 +19,15 @@ function populateFromControllerAction(route, obj, selector, funcPre, funcPost) {
 
     $.get(route, obj, function (data) {
         $(selector).html(data);
+        makeKnobs();
         if (funcPost) { funcPost(); }
     });
 }
 
 function scrollToNewFeedItem() {
-    document.getElementById(idMap.newFeedItem).scrollIntoView(true);
+    //document.getElementById(idMap.endItem).scrollIntoView(false);
+    var div = $(selectorMap.feedTimelineId);
+    div.scrollTop(div[0].scrollHeight * 10.2);
 }
 
 function onPooperHolderClick(pId, elem) {

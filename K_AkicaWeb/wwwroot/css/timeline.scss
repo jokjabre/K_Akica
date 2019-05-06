@@ -36,18 +36,6 @@ $arrow-border-size: .8rem;
             width: 45%;
         }
 
-        /*&:before {
-            position: absolute;
-            width: 0;
-            height: 0;
-            top: 0%; 
-            margin-left: -#{$arrow-border-size};
-            margin-top: calc(-1 * #{$arrow-border-size} * 0.99);
-            border-bottom: $arrow-border-size solid $color-primary;
-            border-left: $arrow-border-size solid transparent;
-            border-right: $arrow-border-size solid transparent;
-        }*/
-
         .timeline-content {
             float: none;
             width: 45%;

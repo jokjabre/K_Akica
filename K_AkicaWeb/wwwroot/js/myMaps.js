@@ -1,7 +1,9 @@
 ﻿var idMap = {
     pooperFeed: "pooperFeed",
     feedTimeline: "feedTimeline",
-    newFeedItem: "newFeedItem"
+    newFeedItem: "newFeedItem",
+    feedHolder: "feedHolder",
+    endItem: "endItem"
 };
 
 var linkMap = {
@@ -25,6 +27,8 @@ var selectorMap = {
     pooperHolderClickedSelector: ".pooperHolder.clicked",
     feedTimelineId: "#feedTimeline",
     newFeedItemId: "#newFeedItem",
+    feedHol0derId: "#feedHolder",
+    endItemId: "#endItem",
 
     newItemPoop: "#newFeedItem :checkbox[name='Poop']",
     newItemWizz: "#newFeedItem :checkbox[name='Wizz']",
