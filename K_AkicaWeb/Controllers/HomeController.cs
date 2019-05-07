@@ -31,10 +31,12 @@ namespace K_AkicaWeb.Controllers
 
         public async Task<ViewComponentResult> FeedItems(int id, int? pageNum = 1)
         {
-            var feed = await K_AkicaClient.GetFeedForPooperAsync(id);
+            if(!pageNum.HasValue || pageNum == 0) { pageNum = 1; }
+
+            var feed = await K_AkicaClient.GetFeedForPooperAsync(id, pageNum.Value);
             var model = feed.Select(e => new FeedItemViewModel(e));
 
-            return ViewComponent("FeedItemsComponent", new { model = model, isPlain = pageNum > 1 });
+            return ViewComponent("FeedItemsComponent", new { model, isPlain = pageNum > 1 });
         }
 
         public async Task<bool> AddFeed(FeedItemRequest item)

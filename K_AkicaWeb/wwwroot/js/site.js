@@ -33,13 +33,25 @@ function populateFromControllerAction(route, obj, selector, funcPre, funcPost, p
 function scrollToNewFeedItem() {
     //document.getElementById(idMap.endItem).scrollIntoView(false);
     var div = $(selectorMap.feedTimelineId);
-    div.scrollTop(div[0].scrollHeight * 10.2);
+    div.scrollTop(div[0].scrollHeight);
+
+    $(selectorMap.textAreaId).focus();
+}
+
+function attachToKeyPress(selector) {
+
+    $(selector).keydown(function (e) {
+        if (e.keyCode === 13 && e.altKey) {
+            refreshFeed();
+        }
+    });
 }
 
 function pooperHolderClickFuncPost() {
     makeKnobs();
     scrollToNewFeedItem();
     attachToScrollEvent();
+    attachToKeyPress(selectorMap.textAreaId);
 }
 
 function onPooperHolderClick(pId, elem) {

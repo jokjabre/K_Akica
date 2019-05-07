@@ -36,28 +36,35 @@ function refreshFeed() {
                 { id: dt.PooperId },
                 selectorMap.pooperFeedId,
                 null,
-                scrollToNewFeedItem);
+                pooperHolderClickFuncPost);
         }
     });
 }
 
 function attachToScrollEvent() {
-
-    $(selectorMap.feedTimelineId).scroll(function () {
+    var div = $(selectorMap.feedTimelineId);
+    div.scroll(function () {
         if ($(this).scrollTop() === 0) {
             valMap.pageNum++;
-            loadNewPage();
+            loadNewPage(selectorMap.feedTimelineId);
         }
     });
 }
 
-function loadNewPage() {
-    
+function loadNewPage(elemSelector) {
+
+    var div = $(elemSelector);
+    var scroll = div[0].scrollHeight;
+
+    var funcPost = function () {
+        div.scrollTop(div[0].scrollHeight - scroll);
+    };
+
     populateFromControllerAction(
         linkMap.feed + "?pageNum=" + valMap.pageNum,
         { id: getPooperId() },
         selectorMap.feedHolderId,
         null,
-        null,
+        funcPost,
         true);
 }

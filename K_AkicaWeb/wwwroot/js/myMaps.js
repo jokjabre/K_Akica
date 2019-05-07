@@ -3,7 +3,8 @@
     feedTimeline: "feedTimeline",
     newFeedItem: "newFeedItem",
     feedHolder: "feedHolder",
-    endItem: "endItem"
+    endItem: "endItem",
+    textArea: "Description"
 };
 
 var linkMap = {
@@ -34,9 +35,9 @@ var selectorMap = {
     newItemWizz: "#newFeedItem :checkbox[name='Wizz']",
 
     newItemDuration: "#newFeedItem [name='Duration']",
-    newItemDescription: "#newFeedItem [name='Description']"
+    newItemDescription: "#newFeedItem [name='Description']",
 
-
+    textAreaId: "#Description"
 };
 
 var valMap = {
