@@ -1,0 +1,39 @@
+﻿div[class^="Timeline-"] {
+    display: flex;
+}
+
+.Timeline-Node {
+    background: blueviolet;
+    flex-flow: column;
+    border: 0.1rem solid black;
+}
+
+.Timeline-Header {
+    background: yellow;
+    flex: 0;
+}
+
+    .Timeline-Header h3 {
+        margin: 0;
+    }
+
+.Timeline-Time {
+    background: green;
+    padding: 1rem;
+    flex: 0;
+}
+
+.Timeline-Duration {
+    justify-items: center;
+    flex: 0;
+}
+
+.Timeline-Icons {
+    justify-content: flex-end;
+    flex: 1;
+}
+
+.Timeline-Description {
+    background: whitesmoke;
+    flex: 1;
+}

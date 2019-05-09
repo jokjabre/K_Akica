@@ -1,0 +1,26 @@
+﻿[
+  {
+    "outputFile": "ClientApp/src/css/sidenav.css",
+    "inputFile": "ClientApp/scss/sidenav.scss"
+  },
+  {
+    "outputFile": "ClientApp/src/css/custom.css",
+    "inputFile": "ClientApp/scss/custom.scss"
+  },
+  {
+    "outputFile": "ClientApp/src/css/theme.css",
+    "inputFile": "ClientApp/scss/theme.scss"
+  },
+  {
+    "outputFile": "ClientApp/src/css/timeline.css",
+    "inputFile": "ClientApp/scss/timeline.scss"
+  },
+  {
+    "outputFile": "ClientApp/src/css/toggle.css",
+    "inputFile": "ClientApp/scss/toggle.scss"
+  },
+  {
+    "outputFile": "ClientApp/src/css/variables.css",
+    "inputFile": "ClientApp/scss/variables.scss"
+  }
+]

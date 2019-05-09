@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { NavMenu } from './NavMenu';
+import { TimelineNode } from "./Timeline/TimelineNode";
+
 
 export class Home extends Component {
     static displayName = Home.name;
@@ -19,11 +21,15 @@ export class Home extends Component {
             });
     }
 
+    pooperClicked = id => {
+        alert("aaa");
+    }
+
     render() {
         return (
-            <div className="d-flex flex-row bg-info">
-                <NavMenu poopers={this.state.poopers} />
-                <h1 className="flex-fill bg-danger">Hello, world!</h1>
+            <div className="d-flex flex-row">
+                <NavMenu poopers={this.state.poopers} pooperClick={this.pooperClicked} />
+                <TimelineNode />
 
             </div>
         );
