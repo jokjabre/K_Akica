@@ -12,15 +12,15 @@
     "inputFile": "ClientApp/scss/theme.scss"
   },
   {
-    "outputFile": "ClientApp/src/css/timeline.css",
-    "inputFile": "ClientApp/scss/timeline.scss"
-  },
-  {
     "outputFile": "ClientApp/src/css/toggle.css",
     "inputFile": "ClientApp/scss/toggle.scss"
   },
   {
     "outputFile": "ClientApp/src/css/variables.css",
     "inputFile": "ClientApp/scss/variables.scss"
+  },
+  {
+    "outputFile": "ClientApp/src/components/Timeline/timeline.css",
+    "inputFile": "ClientApp/src/components/Timeline/timeline.scss"
   }
 ]

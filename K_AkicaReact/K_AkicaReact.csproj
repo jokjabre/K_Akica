@@ -34,16 +34,12 @@
     <None Remove="ClientApp\scss\theme.css" />
     <None Remove="ClientApp\scss\theme.min.css" />
     <None Remove="ClientApp\scss\theme.scss" />
-    <None Remove="ClientApp\scss\timeline.css" />
-    <None Remove="ClientApp\scss\timeline.min.css" />
-    <None Remove="ClientApp\scss\timeline.scss" />
     <None Remove="ClientApp\scss\toggle.css" />
     <None Remove="ClientApp\scss\toggle.min.css" />
     <None Remove="ClientApp\scss\toggle.scss" />
     <None Remove="ClientApp\scss\variables.css" />
     <None Remove="ClientApp\scss\variables.min.css" />
     <None Remove="ClientApp\scss\variables.scss" />
-    <None Remove="ClientApp\src\components\Timeline\timeline.css" />
   </ItemGroup>
 
   <ItemGroup>
@@ -72,15 +68,6 @@
     <Content Include="ClientApp\scss\theme.scss">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="ClientApp\scss\timeline.css">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Include="ClientApp\scss\timeline.min.css">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Include="ClientApp\scss\timeline.scss">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
     <Content Include="ClientApp\scss\toggle.css">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
@@ -97,9 +84,6 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
     <Content Include="ClientApp\scss\variables.scss">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Include="ClientApp\src\components\Timeline\timeline.css">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
   </ItemGroup>

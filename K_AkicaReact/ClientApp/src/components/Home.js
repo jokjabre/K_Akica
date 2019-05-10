@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import { NavMenu } from './NavMenu';
-import { TimelineNode } from "./Timeline/TimelineNode";
-
+import { Timeline } from '../components/Timeline/Timeline';
 
 export class Home extends Component {
     static displayName = Home.name;
 
     constructor(props) {
         super(props);
-        this.state = { poopers: [] };
+        this.state = {
+            poopers: [],
+            feedItems: []
+        };
 
-
+        this.pooperClicked = this.pooperClicked.bind(this);
     }
 
     componentDidMount() {
@@ -21,16 +23,20 @@ export class Home extends Component {
             });
     }
 
-    pooperClicked = id => {
-        alert("aaa");
+    pooperClicked = pId => {
+        fetch(`Home/FeedItems/?id=${pId}`)
+            .then(response => response.json())
+            .then(data => {
+                this.setState({ feedItems: data });
+            });
     }
 
     render() {
         return (
-            <div className="d-flex flex-row">
-                <NavMenu poopers={this.state.poopers} pooperClick={this.pooperClicked} />
-                <TimelineNode />
+            <div className="main d-flex flex-row">
+                <NavMenu poopers={this.state.poopers} pooperClick={this.pooperClicked} /> 
 
+                <Timeline feedItems={this.state.feedItems}/>
             </div>
         );
     }

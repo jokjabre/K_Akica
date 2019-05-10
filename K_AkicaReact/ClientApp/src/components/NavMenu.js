@@ -24,17 +24,16 @@ export class NavMenu extends Component {
         });
     }
 
-    onPooperClick = (elem) => (event) => {
-        alert(elem);
-        this.setState({ clickedPooperKey: 0 });
-        this.props.pooperClick();
+    onPooperClick = (pooperId) => (event) => {
+        this.setState({ clickedPooperKey: pooperId });
+        this.props.pooperClick(pooperId);
     }
 
 
     render() {
         return (
 
-            <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white mb-4 p-1 sidenav" light>
+            <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white mb-4 p-1 sidenav position-fixed" light>
                 <Container className="d-flex flex-column p-0">
                     <NavbarBrand>Poopers</NavbarBrand>
                     <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
@@ -43,7 +42,10 @@ export class NavMenu extends Component {
                             {this.props.poopers.map(pooper =>
 
                                 <NavItem key={pooper.id.toString()} className="hoverable">
-                                    <NavLink className="text-dark" onClick={this.onPooperClick(pooper.id)}>{pooper.name}</NavLink>
+                                    <NavLink
+                                        className={(this.state.clickedPooperKey === pooper.id ? "clicked" : "") + " text-dark"}
+                                        onClick={this.onPooperClick(pooper.id)}>{pooper.name}
+                                    </NavLink>
                                 </NavItem>
 
                             )}

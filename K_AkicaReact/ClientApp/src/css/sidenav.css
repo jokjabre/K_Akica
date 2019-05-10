@@ -3,7 +3,8 @@
 .sidenav {
   z-index: 2;
   overflow: hidden;
-  font-size: 2rem; }
+  font-size: 2rem;
+  align-items: flex-start; }
   .sidenav div {
     width: 100%;
     text-align: center; }

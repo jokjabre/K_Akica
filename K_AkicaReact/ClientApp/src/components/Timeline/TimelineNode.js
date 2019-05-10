@@ -7,38 +7,24 @@ export class TimelineNode extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { currentCount: 0 };
-        this.incrementCounter = this.incrementCounter.bind(this);
-    }
-
-    incrementCounter() {
-        this.setState({
-            currentCount: this.state.currentCount + 1
-        });
+        //this.incrementCounter = this.incrementCounter.bind(this);
     }
 
     render() {
         return (
             <div className="Timeline-Node">
                 <div className="Timeline-Header">
-                    <h3 className="Timeline-Time">19:53</h3>
+                    <h3 className="Timeline-Time">{this.props.feedItem.time}</h3>
                     <div className="Timeline-Icons" />
-                    <div className="Timeline-Duration" />
+                    <div className="Timeline-Duration" >{this.props.feedItem.duration}</div>
                 </div>
                 <div className="Timeline-Description">
                     <p>
-                        Creative Direction,
-            <br />
-                        User Experience, <br />
-                        Visual Design, <br />
-                        Project Management, <br />
-                        Team <br />
-                        Leading
-            <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
+                        {this.props.feedItem.description.map((desc, index) =>
+                            <React.Fragment key={index.toString()}>
+                                {desc} <br />
+                            </React.Fragment>
+                        )}
                     </p>
                 </div>
             </div>
