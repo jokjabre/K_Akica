@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavMenu } from './NavMenu';
+import { Sidenav } from './Sidenav/Sidenav';
 import { Timeline } from '../components/Timeline/Timeline';
 
 export class Home extends Component {
@@ -34,7 +34,7 @@ export class Home extends Component {
     render() {
         return (
             <div className="main d-flex flex-row">
-                <NavMenu poopers={this.state.poopers} pooperClick={this.pooperClicked} /> 
+                <Sidenav poopers={this.state.poopers} pooperClick={this.pooperClicked} /> 
 
                 <Timeline feedItems={this.state.feedItems}/>
             </div>

@@ -13,12 +13,12 @@ export class TimelineNode extends Component {
     render() {
         return (
             <div className="Timeline-Node">
-                <div className="Timeline-Header">
+                <div className="Timeline-Header themed-primary">
                     <h3 className="Timeline-Time">{this.props.feedItem.time}</h3>
                     <div className="Timeline-Icons" />
                     <div className="Timeline-Duration" >{this.props.feedItem.duration}</div>
                 </div>
-                <div className="Timeline-Description">
+                <div className="Timeline-Description themed-secondary">
                     <p>
                         {this.props.feedItem.description.map((desc, index) =>
                             <React.Fragment key={index.toString()}>
