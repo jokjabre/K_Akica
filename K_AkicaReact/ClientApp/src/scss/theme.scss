@@ -1,15 +1,16 @@
 ﻿@import "variables.scss";
 
-.themed-container {
+.themed-secondary {
+    color: $color-font-secondary;
     background: $color-secondary;
 }
 
-.themed-element {
+.themed-primary {
     color: $color-font-primary;
     background: $color-primary;
 }
 
-.themed-element-inverse {
+.themed-primary-inverse {
     color: $color-primary;
     background: $color-font-primary;
 }

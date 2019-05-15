@@ -1,12 +1,11 @@
-﻿/*#726f77;*/
-/*#5ecae8;*/
-.themed-container {
+﻿.themed-secondary {
+  color: #090a09;
   background: #f9f9f9; }
 
-.themed-element {
+.themed-primary {
   color: #f9f9f9;
   background: #4484CE; }
 
-.themed-element-inverse {
+.themed-primary-inverse {
   color: #4484CE;
   background: #f9f9f9; }
