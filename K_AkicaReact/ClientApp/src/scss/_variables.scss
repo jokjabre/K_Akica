@@ -1,0 +1,24 @@
+﻿$color-font-primary: #f9f9f9;
+$color-font-secondary: #090a09;
+
+$color-primary: #4484CE;
+$color-secondary: #f9f9f9;
+
+$bg-color: #D9D9D9;
+
+$color-shadow: rgba(0, 0, 0, 0.48) ;
+
+@mixin vendorPrefixed($prop, $val) {
+    @each $prefix in '-webkit-', '-moz-', '-ms-', '' {
+        #{$prefix}#{$prop}: $val;
+    }
+}
+
+%clearfix {
+    &:after, &:before {
+        content: '';
+        display: block;
+        width: 100%;
+        clear: both;
+    }
+}

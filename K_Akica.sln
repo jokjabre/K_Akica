@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "K_Akica.API.Contracts", "K_
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "K_Akica.API", "K_Akica.API\K_Akica.API.csproj", "{A1528EB2-D735-429E-ABA7-1792A5CAF003}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "K_AkicaWeb", "K_AkicaWeb\K_AkicaWeb.csproj", "{4848C629-E705-4840-B696-7429DF551304}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "K_AkicaWeb", "K_AkicaWeb\K_AkicaWeb.csproj", "{4848C629-E705-4840-B696-7429DF551304}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "K_AkicaReact", "K_AkicaReact\K_AkicaReact.csproj", "{05FC5FCA-803E-4C9C-9045-E8F1D7A72850}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{4848C629-E705-4840-B696-7429DF551304}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4848C629-E705-4840-B696-7429DF551304}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4848C629-E705-4840-B696-7429DF551304}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05FC5FCA-803E-4C9C-9045-E8F1D7A72850}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05FC5FCA-803E-4C9C-9045-E8F1D7A72850}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05FC5FCA-803E-4C9C-9045-E8F1D7A72850}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05FC5FCA-803E-4C9C-9045-E8F1D7A72850}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

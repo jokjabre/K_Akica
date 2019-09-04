@@ -1,0 +1,111 @@
+﻿@import "variables.scss";
+
+$base: 3rem;
+$pad: calc(#{$base} / 6);
+
+$sliderSize: calc(#{$base} * 0.7);
+$sliderWidth: calc(#{$base} + #{$sliderSize});
+$fntSize: calc(#{$base} * 0.3);
+
+$backColorOn: $color-primary; /*#ff6418;*/
+$backColorOff: $color-secondary; /*#f2f2f2;*/
+
+$frontColorOn: $color-secondary; /*#fff;*/
+$frontColorOff: $color-primary; /*darkslategrey;*/
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: $sliderWidth;
+    height: $sliderSize;
+
+    & input {
+        display: none;
+    }
+
+
+    & .slider {
+        position: absolute;
+        cursor: pointer;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: $backColorOff;
+        -webkit-transition: .4s;
+        transition: .4s;
+
+
+        &:before {
+            position: absolute;
+            z-index: 2;
+            content: "";
+            height: $sliderSize;
+            width: $sliderSize;
+            background-color: $frontColorOff;
+            -webkit-transition: .4s;
+            transition: all 0.4s ease-in-out;
+        }
+
+        &:after {
+            position: absolute;
+            left: 0;
+            z-index: 1;
+            content: attr(data-on);
+            font-size: $fntSize;
+            text-align: left !important;
+            line-height: $sliderSize;
+            padding-left: 0;
+            width: $sliderWidth;
+            color: $frontColorOn;
+            height: $sliderSize;
+            border-radius: $sliderSize;
+            background-color: $backColorOn;
+            -webkit-transform: translateX(-$base);
+            -ms-transform: translateX(-$base);
+            transform: translateX(-$base);
+            visibility: hidden;
+            transition: all 0.4s ease-in-out;
+        }
+        /* Rounded sliders */
+        &.round {
+            border-radius: $sliderSize;
+            box-shadow: 0px 0px 0px 1px $color-primary;
+
+            &:before {
+                border-radius: 50%;
+            }
+        }
+    }
+
+    input:checked ~ .slider {
+
+        &:after {
+            -webkit-transform: translateX(0px);
+            -ms-transform: translateX(0px);
+            transform: translateX(0px);
+            padding-left: $pad;
+            visibility: visible;
+        }
+
+        &:before {
+            background-color: $frontColorOn;
+            -webkit-transform: translateX($base);
+            -ms-transform: translateX($base);
+            transform: translateX($base);
+        }
+    }
+
+    .absolute-no {
+        position: absolute;
+        left: 0;
+        color: $frontColorOff;
+        text-align: right !important;
+        font-size: $fntSize;
+        width: calc(100% - #{$pad});
+        height: $sliderSize;
+        line-height: $sliderSize;
+        cursor: pointer;
+    }
+}

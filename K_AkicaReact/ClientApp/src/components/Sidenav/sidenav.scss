@@ -1,0 +1,72 @@
+﻿@import "../../scss/variables";
+
+
+.sidenav {
+    z-index: 2;
+    overflow: hidden;
+    font-size: 2rem;
+    align-items: flex-start;
+
+    div {
+        width: 100%;
+        text-align: center;
+    }
+
+    .hoverable {
+        cursor: pointer;
+    }
+
+    .hoverable:hover {
+        background: $color-primary;
+    }
+
+    .clicked {
+        background: $color-primary;
+        color: $color-font-primary;
+    }
+
+    .navbar-brand {
+        padding-bottom: 2rem;
+    }
+
+    .nav {
+        flex-wrap: nowrap;
+        /*overflow-y: auto;*/
+    }
+}
+
+
+
+@media (max-width: 991px) {
+    .sidenav {
+        flex-direction: row !important;
+        width: 100%;
+        height: auto;
+
+        .navbar-brand {
+            padding-bottom: 0;
+        }
+    }
+
+    #navbarNav {
+        max-height: 15rem;
+    }
+
+    .navbar-collapse.collapse {
+        overflow-y: auto !important;
+    }
+
+
+    .collapsing {
+        overflow: hidden !important;
+    }
+
+    #feedHolder {
+        max-width: 100% !important;
+
+    }
+
+    main {
+        flex-direction: column !important;
+    }
+}

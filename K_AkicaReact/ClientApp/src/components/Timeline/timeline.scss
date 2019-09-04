@@ -1,0 +1,43 @@
+﻿@import "../../scss/variables";
+
+
+div[class^="Timeline-"] {
+    display: flex;
+}
+
+.Timeline {
+    flex: 1;
+
+    .Timeline-Node {
+        flex-flow: column;
+        border: 0.1rem solid black;
+        flex: 1;
+        margin: 1rem 0 1rem 0;
+
+        .Timeline-Header {
+            flex: 0;
+
+            h3 {
+                margin: 0;
+            }
+        }
+
+        .Timeline-Time {
+            padding: 1rem;
+            flex: 0;
+        }
+
+        .Timeline-Duration {
+            flex: 0;
+        }
+
+        .Timeline-Icons {
+            justify-content: flex-end;
+            flex: 1;
+        }
+
+        .Timeline-Description {
+            flex: 1;
+        }
+    }
+}

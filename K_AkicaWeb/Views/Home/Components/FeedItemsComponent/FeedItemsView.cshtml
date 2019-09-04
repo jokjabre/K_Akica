@@ -1,0 +1,17 @@
+﻿@model IEnumerable<FeedItemViewModel>
+
+<h1 class="project-name">Activity feed</h1>
+
+<div id="feedTimeline">
+    <div id="feedHolder" class="container">
+
+        @foreach (var item in Model)
+        {
+            @await Component.InvokeAsync("TimelineItemComponent", item)
+        }
+
+    </div>
+
+    @await Component.InvokeAsync("NewFeedItemComponent")
+</div>
+

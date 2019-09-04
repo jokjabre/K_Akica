@@ -1,0 +1,7 @@
+﻿@model  string
+
+    <label class="switch">
+        <input type="checkbox" name="@Model" data-val="true" value="true" data-toggle="@Model" />
+        <span class="slider round" data-on="@Model.ToUpper()"></span>
+        <span class="absolute-no">@Model.ToUpper()</span>
+    </label>

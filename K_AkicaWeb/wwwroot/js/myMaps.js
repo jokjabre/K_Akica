@@ -1,6 +1,10 @@
 ﻿var idMap = {
     pooperFeed: "pooperFeed",
-    feedTimeline: "feedTimeline"
+    feedTimeline: "feedTimeline",
+    newFeedItem: "newFeedItem",
+    feedHolder: "feedHolder",
+    endItem: "endItem",
+    textArea: "Description"
 };
 
 var linkMap = {
@@ -14,7 +18,7 @@ var classMap = {
 };
 
 var dataMap = {
-    pooperId: "pooperId"
+    pooperId: "pooperid"
 };
 
 var selectorMap = {
@@ -22,5 +26,20 @@ var selectorMap = {
     pooperHolderClass: ".pooperHolder",
     clickedClass: ".clicked",
     pooperHolderClickedSelector: ".pooperHolder.clicked",
-    feedTimelineId: "#feedTimeline"
+    feedTimelineId: "#feedTimeline",
+    newFeedItemId: "#newFeedItem",
+    feedHolderId: "#feedHolder",
+    endItemId: "#endItem",
+
+    newItemPoop: "#newFeedItem :checkbox[name='Poop']",
+    newItemWizz: "#newFeedItem :checkbox[name='Wizz']",
+
+    newItemDuration: "#newFeedItem [name='Duration']",
+    newItemDescription: "#newFeedItem [name='Description']",
+
+    textAreaId: "#Description"
+};
+
+var valMap = {
+    pageNum: 1
 };

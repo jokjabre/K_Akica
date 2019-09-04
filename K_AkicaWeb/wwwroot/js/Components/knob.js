@@ -1,0 +1,3 @@
+﻿function makeKnobs() {
+    $(".dial").knob();
+}

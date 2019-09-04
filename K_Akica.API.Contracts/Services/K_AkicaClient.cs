@@ -75,11 +75,11 @@ namespace K_Akica.API.Contracts.Services
         }
 
 
-        public static async Task<IEnumerable<FeedItem>> GetFeedForPooperAsync(int id)
+        public static async Task<IEnumerable<FeedItem>> GetFeedForPooperAsync(int id, int pageNum = 1)
         {
             var holder = new ClientHolder()
             {
-                Uri = $"{ApiUri.AbsoluteUri}/FeedItems/pooper/{id}",
+                Uri = $"{ApiUri.AbsoluteUri}/FeedItems/pooper/{id}?pageNum={pageNum}",
                 OperationType = OperationType.Post,
                 Content = null
             };

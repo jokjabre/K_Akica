@@ -29,22 +29,20 @@ namespace K_AkicaWeb.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public PartialViewResult PoopersList()
+        public async Task<ViewComponentResult> FeedItems(int id, int? pageNum = 1)
         {
-            var poopers = K_AkicaClient.GetAllPoopersAsync().Result;
+            if(!pageNum.HasValue || pageNum == 0) { pageNum = 1; }
 
-            return PartialView(poopers);
+            var feed = await K_AkicaClient.GetFeedForPooperAsync(id, pageNum.Value);
+            var model = feed.Select(e => new FeedItemViewModel(e));
+
+            return ViewComponent("FeedItemsComponent", new { model, isPlain = pageNum > 1 });
         }
 
-        public async Task<PartialViewResult> FeedItems(int id)
-        {
-            var feed = await K_AkicaClient.GetFeedForPooperAsync(id);
-            return PartialView(feed);
+        public async Task<bool> AddFeed(FeedItemRequest item)
+        {           
+            return await K_AkicaClient.AddFeedItemAsync(item);
         }
 
-        public async Task AddFeed(FeedItemRequest item)
-        {
-            await K_AkicaClient.AddFeedItemAsync(item);
-        }
     }
 }

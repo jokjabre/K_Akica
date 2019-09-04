@@ -1,0 +1,42 @@
+﻿@model FeedItemViewModel
+
+
+<div class="timeline-item">
+
+    <div class="timeline-icon">
+        @{ string imgSrc = "img/" + Model.DurationIcon + ".svg"; }
+        <img src="@imgSrc" />
+    </div>
+
+    <div class="timeline-content @Model.ContentClass">
+
+        <div class="timeline-header themed-element">
+            <span>@Model.Time</span>
+
+            @if (Model.Poop)
+            {
+                <i class="fa fa-poo"></i>
+            }
+            @if (Model.Wizz)
+            {
+                <i class="fa fa-tint"></i>
+            }
+            @if (!Model.Poop && !Model.Wizz)
+            {
+                <i class="fa fa-info"></i>
+            }
+
+        </div>
+
+        @if (Model.Description.Any())
+        {
+            <p>
+                @foreach (var line in Model.Description)
+                {
+                    @line <br />
+                }
+            </p>
+        }
+    </div>
+
+</div>
